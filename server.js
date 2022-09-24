@@ -4,13 +4,14 @@ import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
-import methodOverride from methodOverride
+import methodOverride from 'method-override'
 
 // import routers
 import { router as indexRouter } from './routes/index.js'
 import { router as usersRouter } from './routes/users.js'
 
 // set up app
+import "./config/database.js"
 const app = express()
 
 // view engine setup
