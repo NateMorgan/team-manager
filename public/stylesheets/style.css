@@ -1,8 +1,51 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+  box-sizing: border-box
 }
 
-a {
-  color: #00B7FF;
+body {
+  padding: 50px;
+  min-height: 100vh;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #A0DDFF;
+  margin:0;
+  display: grid;
+  grid-template-rows: 50px 50px 1fr;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main";
+}
+
+header{
+  grid-area: "header";
+  background-color: #7189FF;
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+}
+
+nav {
+  grid-area: nav;
+  background-color: #7189FF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color:white;
+  padding: 10px;
+}
+nav a:hover {
+  color:lightgray;
+}
+
+main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
