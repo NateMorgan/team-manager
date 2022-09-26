@@ -1,11 +1,10 @@
 import { Router } from 'express'
+import * as playerCtr from '../controlers/player.js'
 
 const router = Router()
 
 /* GET users listing. */
-router.get('/', function(req, res) {
-  res.send('respond with a resource')
-})
+router.get('/', playerCtr.index)
 
 export {
   router
