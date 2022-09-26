@@ -8,7 +8,7 @@ import methodOverride from 'method-override'
 
 // import routers
 import { router as indexRouter } from './routes/index.js'
-import { router as usersRouter } from './routes/player.js'
+import { router as usersRouter } from './routes/profile.js'
 
 // set up app
 import "./config/database.js"
@@ -33,7 +33,7 @@ app.use(
 
 // mounted routers
 app.use('/', indexRouter)
-app.use('/player', usersRouter)
+app.use('/profile', usersRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

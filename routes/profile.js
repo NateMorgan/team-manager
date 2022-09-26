@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as playerCtr from '../controlers/player.js'
+import * as playerCtr from '../controlers/profile.js'
 
 const router = Router()
 

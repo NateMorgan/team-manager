@@ -1,6 +1,6 @@
 
 function index(req,res){
-  res.render('player/index')
+  res.render('profile/index')
 }
 
 export {
