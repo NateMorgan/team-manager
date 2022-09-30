@@ -6,6 +6,8 @@ const router = Router()
 
 /* GET users listing. */
 router.get('/', isLoggedIn, profileCtrl.show)
+router.get('/:id', profileCtrl.show)
+
 
 export {
   router

@@ -5,7 +5,28 @@
   <h1>Teams </h1>
   <% teams.forEach(team => { %>
     <h2> <%= team.name %> </h2>
-    <h4> Roster </h4>
+    <table>
+      <thead>
+        <tr>
+          <th> Player </th>
+          <th> Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <%= team.captain.name %> </td>
+          <td> 
+            <a href= <%=`/profile/${team.captain._id}`%>>Info</a>  
+          </td>
+        </tr>
+        <% team.players.forEach(player => { %>
+          <tr>
+            <td> <%= player %> </td>
+            <td> Details </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
     <h4> Team Schedule </h4>
   <% }) %>
 </main>
