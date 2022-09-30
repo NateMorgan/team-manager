@@ -1,21 +1,8 @@
 </head>
 <body>
-  <header> <a href="/">Rec Team Manager</a> </header>
-  <nav>
-    <a href="/league">
-      League
-    </a>
-    <a href="/games">
-      Schedule
-    </a>
-    <a href="/team">
-      Team
-    </a>
-    <a href="/profile">
-      Profile
-    </a>
+  <header> 
+    <a href="/">Rec Team Manager</a> 
     <div class="text-end d-flex align-items-center">
-      <% // TODO: Add login logic here %> 
       <% if (user) { %>
         <a href="/auth/logout">
           <button class="btn btn-warning">Logout</button>
@@ -37,5 +24,19 @@
           data-logo_alignment="left"
         ></div>
       <% } %>
-      </div>
+    </div>
+  </header>
+  <nav>
+    <a href="/league">
+      League
+    </a>
+    <a href="/games">
+      Schedule
+    </a>
+    <a href="/teams">
+      Teams
+    </a>
+    <a href="/profile">
+      My Profile
+    </a>
   </nav>

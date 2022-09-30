@@ -60,7 +60,7 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (id, done) {
   User.findById(id)
-  .populate('playerProfile', 'name avatar')
+  .populate('playerProfile', 'name avatar teams')
   .then(user => {
     done(null, user)
   })

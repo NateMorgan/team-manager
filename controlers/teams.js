@@ -1,0 +1,29 @@
+import { Team } from "../models/team.js"
+import { Profile } from "../models/profile.js"
+
+function index(req,res){
+  res.render('teams/index')
+}
+
+function newTeam(req,res){
+  res.render('teams/new')
+}
+
+function create(req,res){
+  req.body.captain = req.user._id
+  Team.create(req.body)
+  .then(team => {
+    Profile.findById(req.user.playerProfile._id)
+    .then(profile => {
+      profile.teams.push(team._id)
+      profile.save()
+      res.redirect('/teams')
+    })
+  })
+}
+
+export {
+  index,
+  newTeam as new,
+  create,
+}

@@ -1,16 +1,18 @@
 import { Profile } from "../models/profile.js"
 
-function index(req,res){
-  // Player.findById()
-  // .then ( profile =>{
-    res.render('profile/index')
-  // })
-  // .catch(err => {
-  //   console.log(err)
-  //   res.redirect('/')
-  // })
+function show(req,res){
+  Profile.find()
+  .then ( profile =>{
+    res.render('profile/show',{
+      profile
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
 
 export {
-  index,
+  show,
 }

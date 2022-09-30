@@ -1,0 +1,21 @@
+<%- include("../partials/html-head")  %> 
+<%- include("../partials/nav")  %> 
+
+<main>
+  <% if (user) { %>
+    <h1>Profile</h1>
+    <h3> Name: </h3>
+    <p><%= user.playerProfile.name %> </p>
+    <h3> Email: </h3>
+    <p><%= user.email %> </p>
+    <h3> Teams: </h3>
+    <p><%= user.playerProfile.teams %> </p>
+    <form action="/teams/new" method="GET">
+      <button> Start A Team </button>
+    </form>
+  <% }else{ %>
+    <h1>User is not signed in</h1>
+  <% } %>
+</main>
+
+<%- include("../partials/footer")  %> 
