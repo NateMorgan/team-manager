@@ -2,9 +2,12 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h1>Team View</h1>
-  <h3> Roster </h3>
-  <h3> Team Schedule </h3>
+  <h1>Teams </h1>
+  <% teams.forEach(team => { %>
+    <h2> <%= team.name %> </h2>
+    <h3> Roster </h3>
+    <h3> Team Schedule </h3>
+  <% }) %>
 </main>
 
 <%- include("../partials/footer")  %> 

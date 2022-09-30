@@ -2,7 +2,12 @@ import { Team } from "../models/team.js"
 import { Profile } from "../models/profile.js"
 
 function index(req,res){
-  res.render('teams/index')
+  Team.find()
+  .then(teams =>{
+    res.render('teams/index',{
+      teams
+    })
+  })
 }
 
 function newTeam(req,res){

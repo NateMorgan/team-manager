@@ -1,8 +1,10 @@
 import { Profile } from "../models/profile.js"
 
 function show(req,res){
-  Profile.find()
+  Profile.findById(req.user.playerProfile._id)
+  .populate('teams')
   .then ( profile =>{
+    console.log(profile)
     res.render('profile/show',{
       profile
     })

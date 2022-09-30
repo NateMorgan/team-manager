@@ -1,7 +1,9 @@
 </head>
 <body>
   <header> 
-    <a href="/">Rec Team Manager</a> 
+    <h2>
+      <a href="/">Rec Team Manager</a> 
+    </h2>
     <div class="text-end d-flex align-items-center">
       <% if (user) { %>
         <a href="/auth/logout">
@@ -22,6 +24,7 @@
           data-text="sign_in_with"
           data-shape="rectangular"
           data-logo_alignment="left"
+          id="google-sign-on"
         ></div>
       <% } %>
     </div>
@@ -36,7 +39,9 @@
     <a href="/teams">
       Teams
     </a>
-    <a href="/profile">
-      My Profile
-    </a>
+    <% if (user) { %>
+      <a href="/profile">
+        My Profile
+      </a>
+    <% } %>
   </nav>

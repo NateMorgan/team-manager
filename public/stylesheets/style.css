@@ -9,7 +9,7 @@ body {
   background-color: #A0DDFF;
   margin:0;
   display: grid;
-  grid-template-rows: 50px 50px 1fr;
+  grid-template-rows: 60px 50px 1fr;
   grid-template-areas:
     "header"
     "nav"
@@ -19,9 +19,10 @@ body {
 header{
   grid-area: "header";
   background-color: #7189FF;
+  padding:5px;
   color:white;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-size: xx-large;
 }
@@ -30,7 +31,7 @@ nav {
   grid-area: nav;
   background-color: #7189FF;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 

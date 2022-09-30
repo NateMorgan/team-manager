@@ -2,14 +2,20 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <% if (user) { %>
+  <% if (profile !== null) { %>
     <h1>Profile</h1>
     <h3> Name: </h3>
-    <p><%= user.playerProfile.name %> </p>
+    <p><%= profile.name %> </p>
     <h3> Email: </h3>
     <p><%= user.email %> </p>
     <h3> Teams: </h3>
-    <p><%= user.playerProfile.teams %> </p>
+    <% if (profile.teams.length > 0) { %>
+      <% profile.teams.forEach(team => { %>
+        <p> <%= team.name %>  </p>
+      <% }) %>
+    <% } else{ %>
+      <p> You are not a part of any team yet</p>
+    <% } %>
     <form action="/teams/new" method="GET">
       <button> Start A Team </button>
     </form>
