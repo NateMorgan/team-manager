@@ -1,10 +1,10 @@
 import { Router } from 'express'
-import * as playerCtr from '../controlers/profile.js'
+import * as profileCtrl from '../controlers/profile.js'
 
 const router = Router()
 
 /* GET users listing. */
-router.get('/', playerCtr.index)
+router.get('/', profileCtrl.index)
 
 export {
   router

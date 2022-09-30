@@ -34,12 +34,12 @@ nav {
   align-items: center;
 }
 
-nav a {
+a {
   text-decoration: none;
   color:white;
   padding: 10px;
 }
-nav a:hover {
+a:hover {
   color:lightgray;
 }
 

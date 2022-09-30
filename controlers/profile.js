@@ -1,6 +1,14 @@
+import { Profile } from "../models/profile.js"
 
 function index(req,res){
-  res.render('profile/index')
+  // Player.findById()
+  // .then ( profile =>{
+    res.render('profile/index')
+  // })
+  // .catch(err => {
+  //   console.log(err)
+  //   res.redirect('/')
+  // })
 }
 
 export {

@@ -1,12 +1,18 @@
 import "dotenv/config.js"
+import './config/passport.js'
 import createError from 'http-errors'
+import session from 'express-session'
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
+import validator from 'validator';
 import methodOverride from 'method-override'
+import { passDataToView } from './middleware/middleware.js'
+import passport from "passport"
 
 // import routers
+import { router as authRouter } from './routes/auth.js'
 import { router as indexRouter } from './routes/index.js'
 import { router as profileRouter } from './routes/profile.js'
 import { router as teamRouter } from './routes/team.js'
@@ -27,13 +33,29 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: 'lax',
+    }
+  })
+)
+app.use(
   express.static(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
   )
 )
+app.use(methodOverride('_method'))
 
+app.use(passport.initialize())
+app.use(passport.session())
+
+app.use(passDataToView)
 // mounted routers
 app.use('/', indexRouter)
+app.use('/auth', authRouter)
 app.use('/profile', profileRouter)
 app.use('/team', teamRouter)
 

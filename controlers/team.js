@@ -1,6 +1,10 @@
 
+
 function index(req,res){
-  res.render('team/index')
+
+    res.render('team/index')
+
+
 }
 
 export {
