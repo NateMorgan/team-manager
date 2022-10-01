@@ -21,7 +21,11 @@
             <a href= <%=`/profile/${team.captain._id}`%>>Info</a>  
           </td>
         </tr>
+        <% let userInTeam = false%>
         <% team.players.forEach(player => { %>
+          <% if (player._id.equals(user.playerProfile._id)){ %>
+            <% userInTeam = true %>
+          <%} %>
           <tr>
             <td> <%= player.name %> </td>
             <td> Player </td>
@@ -32,7 +36,11 @@
         <% }) %>
       </tbody>
     </table>
-    <% if (user) { %>
+    <% if (user.playerProfile._id.equals(team.captain._id)){ %>
+      <p>You are captain of this team!</p>
+    <% } else if (userInTeam) { %>
+      <p> You are a player in this team!</p>
+    <% } else if (user) { %>
       <form action="/teams/<%=team._id%>?_method=PATCH" method="POST">
         <button type="submit"> Join Team</button>
       </form>

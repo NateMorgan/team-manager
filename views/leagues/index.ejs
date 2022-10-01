@@ -1,0 +1,33 @@
+<%- include("../partials/html-head")  %> 
+<%- include("../partials/nav")  %> 
+
+<main>
+  <h1>Leagues </h1>
+  <% leagues.forEach(league => { %>
+    <h2> <%= league.name %> </h2>
+    <table>
+      <thead>
+        <tr>
+          <th> Team </th>
+          <th> Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% league.teams.forEach(team => { %>
+          <tr>
+            <td> <%= team.name %> </td>
+            <td> 
+              <a href= <%=`/teams/${team._id}`%>>Info</a>  
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <h4> League Schedule </h4>
+  <% }) %>
+  <form action="/leagues/new" method="GET">
+    <button> Start a League </button>
+  </form>
+</main>
+
+<%- include("../partials/footer")  %> 
