@@ -1,0 +1,18 @@
+<%- include("../partials/html-head")  %> 
+<%- include("../partials/nav")  %> 
+
+<main>
+  
+  <form action=<%=`/profile/${profile._id}?_method=PUT` %> method="POST">
+    <h1>Update Profile</h1>
+    <h3> Name: </h3>
+    <input type="text" name="name" value="<%= profile.name %>">
+    <h3> Email: </h3>
+    <input type="email" name="email" value="<%= profile.email %>">
+    <br>
+    <br>
+    <button> Save Changes </button>
+  </form>
+</main>
+
+<%- include("../partials/footer")  %> 

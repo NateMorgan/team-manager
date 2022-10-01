@@ -18,6 +18,35 @@ function show(req,res){
   })
 }
 
+function edit(req, res){
+  Profile.findById(req.params.id)
+  .then(profile =>{
+    res.render('profile/edit',{
+      profile
+    })
+  })
+}
+
+function update(req, res){
+  Profile.findById(req.params.id)
+  .then(profile =>{
+    if (profile._id.equals(req.user.playerProfile._id)){
+      profile.updateOne(req.body)
+      .then(()=>{
+        res.redirect(`/profile/${profile._id}`)
+      })
+    } else {
+    throw new Error('🚫 Not authorized 🚫')
+  }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/`)
+  })
+}
+
 export {
   show,
+  edit,
+  update,
 }

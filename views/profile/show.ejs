@@ -16,8 +16,12 @@
     <% } else{ %>
       <p> You are not a part of any team yet</p>
     <% } %>
+    <form action=<%=`/profile/${profile._id}/edit` %> method="GET">
+      <button> Update Profile </button>
+    </form>
+    <br>
     <form action="/teams/new" method="GET">
-      <button> Start A Team </button>
+      <button> Start a Team </button>
     </form>
   <% }else{ %>
     <h1>User is not signed in</h1>
