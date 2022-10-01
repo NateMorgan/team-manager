@@ -30,8 +30,20 @@ function create(req,res){
   })
 }
 
+function joinTeam(req,res){
+  Team.findById(req.params.id)
+  .then(team =>{
+    team.players.push(req.user.playerProfile._id)
+    team.save()
+    .then(()=>{
+      res.redirect('/teams')
+    })
+  })
+}
+
 export {
   index,
   newTeam as new,
   create,
+  joinTeam,
 }

@@ -9,24 +9,34 @@
       <thead>
         <tr>
           <th> Player </th>
+          <th> Role </th>
           <th> Details</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td> <%= team.captain.name %> </td>
+          <td> Captain </td>
           <td> 
             <a href= <%=`/profile/${team.captain._id}`%>>Info</a>  
           </td>
         </tr>
         <% team.players.forEach(player => { %>
           <tr>
-            <td> <%= player %> </td>
-            <td> Details </td>
+            <td> <%= player.name %> </td>
+            <td> Player </td>
+            <td> 
+              <a href= <%=`/profile/${player._id}`%>>Info</a>  
+            </td>
           </tr>
         <% }) %>
       </tbody>
     </table>
+    <% if (user) { %>
+      <form action="/teams/<%=team._id%>?_method=PATCH" method="POST">
+        <button type="submit"> Join Team</button>
+      </form>
+    <% } %>
     <h4> Team Schedule </h4>
   <% }) %>
 </main>
