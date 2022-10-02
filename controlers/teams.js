@@ -41,9 +41,22 @@ function joinTeam(req,res){
   })
 }
 
+function deleteTeam(req,res){
+  Team.findById(req.params.id)
+  .then(team =>{
+    if (req.user.playerProfile._id.equals(team.captain._id)){
+      team.delete()
+      .then(() =>{
+        res.redirect('/teams')
+      })
+    }
+  })
+}
+
 export {
   index,
   newTeam as new,
   create,
   joinTeam,
+  deleteTeam as delete,
 }

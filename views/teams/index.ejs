@@ -23,9 +23,11 @@
         </tr>
         <% let userInTeam = false%>
         <% team.players.forEach(player => { %>
-          <% if (player._id.equals(user.playerProfile._id)){ %>
-            <% userInTeam = true %>
-          <%} %>
+          <% if (user) { %>
+            <% if (player._id.equals(user.playerProfile._id)){ %>
+              <% userInTeam = true %>
+            <%} %>
+          <% } %>
           <tr>
             <td> <%= player.name %> </td>
             <td> Player </td>
@@ -36,14 +38,19 @@
         <% }) %>
       </tbody>
     </table>
-    <% if (user.playerProfile._id.equals(team.captain._id)){ %>
-      <p>You are captain of this team!</p>
-    <% } else if (userInTeam) { %>
-      <p> You are a player in this team!</p>
-    <% } else if (user) { %>
-      <form action="/teams/<%=team._id%>?_method=PATCH" method="POST">
-        <button type="submit"> Join Team</button>
-      </form>
+    <% if (user){ %>
+      <% if (user.playerProfile._id.equals(team.captain._id)){ %>
+        <p>You are captain of this team!</p>
+        <form action="/teams/<%=team._id%>?_method=DELETE" method="POST">
+          <button type="submit"> Delete Team</button>
+        </form>
+      <% } else if (userInTeam) { %>
+        <p> You are a player in this team!</p>
+      <% } else { %>
+        <form action="/teams/<%=team._id%>?_method=PATCH" method="POST">
+          <button type="submit"> Join Team</button>
+        </form>
+      <% } %>
     <% } %>
     <h4> Team Schedule </h4>
   <% }) %>

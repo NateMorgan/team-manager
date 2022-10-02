@@ -11,6 +11,7 @@ router.get('/new', teamCtrl.new)
 router.post('/', isLoggedIn, teamCtrl.create)
 
 router.patch('/:id', isLoggedIn, teamCtrl.joinTeam)
+router.delete('/:id', isLoggedIn, teamCtrl.delete)
 
 export {
   router
