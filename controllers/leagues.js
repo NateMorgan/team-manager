@@ -63,7 +63,6 @@ function update(req,res){
   .populate("teams")
   .then(league =>{
     if (req.user.playerProfile._id.equals(league.coordinator._id)){
-      league.name = req.body.name
       if (league.teams.indexOf(req.body.teams) < 0){
         league.teams.push(req.body.teams)
         league.save()
@@ -71,6 +70,23 @@ function update(req,res){
       Team.find( {_id: {$nin: league.teams}})
       .then(teams =>{
         res.redirect(`/leagues/${req.params.id}/edit`)
+      })
+    }
+  })
+}
+
+function save(req,res){
+  console.log(req.body)
+  League.findById(req.params.id)
+  .populate("teams")
+  .then(league =>{
+    console.log(league)
+    if (req.user.playerProfile._id.equals(league.coordinator._id)){
+      league.name = req.body.name
+      league.description = req.body.description
+      league.save()
+      .then(()=>{
+        res.redirect('/leagues')
       })
     }
   })
@@ -86,6 +102,19 @@ function show(req,res){
   })
 }
 
+function removeTeam(req,res){
+  console.log("I'm here")
+  League.findById(req.params.leagueid)
+  .populate("teams")
+  .then(league =>{
+    league.teams.splice(league.teams.indexOf(req.params.teamid),1)
+    league.save()
+    .then(()=>{
+      res.redirect(`/leagues/${req.params.leagueid}/edit`)
+    })
+  })
+}
+
 export{
   index,
   newLeague as new,
@@ -94,4 +123,6 @@ export{
   edit,
   update,
   show,
+  removeTeam,
+  save,
 }

@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 
 const leagueSchema = new Schema({
   name: String,
+  description: String,
   coordinator: {
     type:   Schema.Types.ObjectId,
     ref: "Profile"},

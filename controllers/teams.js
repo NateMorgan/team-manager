@@ -47,7 +47,7 @@ function leaveTeam(req,res){
     team.players.splice(team.players.indexOf(req.params.playerid),1)
     team.save()
     .then(()=>{
-      res.redirect('/teams')
+      res.redirect(`/teams/${req.params.teamid}`)
     })
   })
 }

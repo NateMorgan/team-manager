@@ -5,6 +5,7 @@
   <h1>Leagues </h1>
   <% leagues.forEach(league => { %>
     <h2> <a href="/leagues/<%=league._id%>"><%= league.name %></a> </h2>
+    <h4><%= league.description %></h4>
     <table>
       <thead>
         <tr>

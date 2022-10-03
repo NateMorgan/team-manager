@@ -27,7 +27,9 @@
           <td> 
             <a href= <%=`/profile/${player._id}`%>>Info</a>  
           </td>
-          <td><a href="/profile/<%=team._id%>/<%= player._id%>/leave?_method=PATCH">X</a></td>
+          <td><form action="/teams/<%=team._id%>/<%=player._id%>/leave?_method=PATCH" method="POST">
+            <button type="submit"> X</button>
+          </form></td>
         </tr>
       <% }) %>
     </tbody>

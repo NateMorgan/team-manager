@@ -2,7 +2,7 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <form action="/leagues/<%=league._id%>/edit/?_method=PUT" method="post">
+  <form action="/leagues/<%=league._id%>?_method=PUT" method="POST">
     <label>
       League Name
       <input type="text" name="name" value="<%=league.name%>">
@@ -10,19 +10,47 @@
     <br>
     <br>
     <label>
-      Add Teams
-      <select name="teams">
-        <% teams.forEach(team => { %>
-          <option value="<%=team._id%>"><%=team.name%></option>
-        <% }) %>
-      </select>
+      League Description
+      <input type="text" name="description" value="<%= league.description%>">
     </label>
-    <button type="submit">Add Team</button>
+    <br>
+    <button type="submit">Save</button>
   </form>
-  <h3>Teams in League</h3>
-  <% league.teams.forEach(team => { %>
-    <p><%= team.name %> </p>
-  <% }) %>
+    <br>
+    <br>
+    <form action="/leagues/<%=league._id%>/edit/?_method=PUT" method="post">
+      <label>
+        Add Teams
+        <select name="teams">
+          <% teams.forEach(team => { %>
+            <option value="<%=team._id%>"><%=team.name%></option>
+          <% }) %>
+        </select>
+      </label>
+      <button type="submit">Add Team</button>
+      <h3>Teams in League</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Team Name</th>
+            <th> Remove </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% league.teams.forEach(team => { %>
+            <tr>
+              <td><a href="/teams/<%=team._id%>"><%=team.name%></a></td>
+              <td>
+                <form action="/leagues/<%=league._id%>/<%=team._id%>/remove?_method=PATCH" method="POST">
+                  <button type="submit"> X </button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <br>
+    </form>
 
 </main>
 

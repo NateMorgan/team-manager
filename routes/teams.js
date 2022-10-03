@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as teamCtrl from '../controlers/teams.js'
+import * as teamCtrl from '../controllers/teams.js'
 import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()

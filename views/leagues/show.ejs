@@ -2,13 +2,21 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h1> <%= league.name%> </h1>
+  <h1> <%= league.name %> </h1>
   <br>
+  <h3> <%= league.description %> </h3>
   <br>
   <h2>Teams</h2>
   <% league.teams.forEach(team => { %>
-    <p><a href="/teams/<%=team._id%>"><%=team.name%></a></p>
+    <p><%= team.name %> </p>
   <% }) %>
+  <% if (user) { %>
+    <% if (user.playerProfile._id.equals(league.coordinator._id)){ %>
+      <form action="/leagues/<%=league._id%>/edit" method="GET">
+        <button type="submit"> Edit League </button>
+      </form>
+    <% } %>
+  <% } %>
 </main>
 
 <%- include("../partials/footer")  %> 
