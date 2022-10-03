@@ -7,6 +7,7 @@ const profileSchema = new Schema({
   avatar: String,
   email: String,
   phoneNum: String,
+  showSettings: [Boolean],
   preferredPositions: [String],
   teams: [{type: Schema.Types.ObjectId, ref: "Team"}],
   userProfile: {type: Schema.Types.ObjectId, ref: "User"}

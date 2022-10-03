@@ -17,6 +17,7 @@ import { router as indexRouter } from './routes/index.js'
 import { router as profileRouter } from './routes/profile.js'
 import { router as teamsRouter } from './routes/teams.js'
 import { router as leaguesRouter } from './routes/leagues.js'
+import { router as gamesRouter } from './routes/games.js'
 
 // set up app
 import "./config/database.js"
@@ -60,6 +61,7 @@ app.use('/auth', authRouter)
 app.use('/profile', profileRouter)
 app.use('/teams', teamsRouter)
 app.use('/leagues',leaguesRouter)
+app.use('/games',gamesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

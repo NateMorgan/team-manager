@@ -21,6 +21,9 @@ passport.use(
             avatar: profile.photos[0].value,
             email: profile.emails[0].value,
             teams: [],
+            showSettings: [false,false],
+            phoneNum: "",
+            preferredPositions:[],
           })
           const newUser = new User({
             email: profile.emails[0].value,

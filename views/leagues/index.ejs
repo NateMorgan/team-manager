@@ -28,9 +28,6 @@
     <% if (user) { %>
       <% if (user.playerProfile._id.equals(league.coordinator._id)){ %>
         <p>You are coordinator of this league!</p>
-        <form action="/leagues/<%=league._id%>?_method=DELETE" method="POST">
-          <button type="submit"> Delete League </button>
-        </form>
       <% } %>
     <% } %>
   <% }) %>

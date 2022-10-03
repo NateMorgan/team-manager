@@ -9,7 +9,10 @@ const teamSchema = new Schema({
     ref: "Profile"},
   players: [{
     type: Schema.Types.ObjectId,
-    ref: "Profile"}]
+    ref: "Profile"}],
+  games:[{
+    type: Schema.Types.ObjectId,
+    ref: "Game"}]
 })
 
 const Team = mongoose.model("Team", teamSchema)

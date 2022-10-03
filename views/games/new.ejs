@@ -1,0 +1,31 @@
+<%- include("../partials/html-head")  %> 
+<%- include("../partials/nav")  %> 
+
+<main>
+  <h1>New Game</h1>
+  <form action="/games" method="post">
+    <label> Home Team
+      <select name="homeTeam">
+        <% teams.forEach(team => { %>
+          <option value="<%= team._id%>"><%= team.name %> </option>
+        <% }) %>
+      </select>
+    </label>
+    <br>
+    <label> Away Team
+      <select name="awayTeam">
+        <% teams.forEach(team => { %>
+          <option value="<%= team._id%>"><%= team.name %> </option>
+        <% }) %>
+      </select>
+    </label>
+    <br>
+    <label> Game Time
+      <input type="datetime-local" name="time">
+    </label>
+    <br>
+    <button type="submit">Add Game</button>
+  </form>
+</main>
+
+<%- include("../partials/footer")  %> 

@@ -8,6 +8,12 @@
     <p><%= profile.name %> </p>
     <h3> Email: </h3>
     <p><%= profile.email %> </p>
+    <h3> Phone Number: </h3>
+    <% if (profile.phoneNum === "") { %>
+      <p> No phone number added</p>
+    <% } else{%>
+      <p><%= profile.phoneNum %> </p>
+    <% } %>
     <h3> Teams: </h3>
     <% if (profile.teams.length > 0) { %>
       <% profile.teams.forEach(team => { %>
@@ -15,6 +21,12 @@
       <% }) %>
     <% } else{ %>
       <p> You are not a part of any team yet</p>
+    <% } %>
+    <h3> Preferred Positions: </h3>
+    <% if (profile.preferredPositions.length === 0) { %>
+      <p> No positions added</p>
+    <% } else {%>
+      <p><%= profile.preferredPositions %> </p>
     <% } %>
     <% if (user) { %>
       <% if (user.playerProfile._id.equals(profile._id)){ %>
