@@ -10,6 +10,7 @@ router.get('/new', gamesCtrl.new)
 
 router.post('/', gamesCtrl.create)
 
+router.delete('/:id', gamesCtrl.delete)
 
 export {
   router

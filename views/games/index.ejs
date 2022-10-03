@@ -4,9 +4,13 @@
 <main>
   <h1>Games</h1>
   <% games.forEach(game => { %>
-   <h4><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </h4>
-   <p> <%= game.time %></p>
+    <h4><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </h4>
+    <p> <%= game.time %></p>
+    <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
+      <button type="submit">Delete Game</button>
+    </form>
   <% }) %>
+  <br>
   <form action="games/new" method="get">
     <button type="submit">Add Game</button>
   </form>

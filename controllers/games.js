@@ -31,8 +31,17 @@ function create(req,res){
   })
 }
 
+function deleteGame(req,res){
+  Game.findById(req.params.id)
+  .then(game =>{
+    game.delete()
+    res.redirect('/games')
+  })
+}
+
 export{
   index,
   newGame as new,
   create,
+  deleteGame as delete,
 }
