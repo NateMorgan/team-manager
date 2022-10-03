@@ -31,9 +31,20 @@ function create(req,res){
 }
 
 function joinTeam(req,res){
-  Team.findById(req.params.id)
+  Team.findById(req.params.teamid)
   .then(team =>{
-    team.players.push(req.user.playerProfile._id)
+    team.players.push(req.params.playerid)
+    team.save()
+    .then(()=>{
+      res.redirect('/teams')
+    })
+  })
+}
+
+function leaveTeam(req,res){
+  Team.findById(req.params.teamid)
+  .then(team =>{
+    team.players.splice(team.players.indexOf(req.params.playerid),1)
     team.save()
     .then(()=>{
       res.redirect('/teams')
@@ -64,11 +75,24 @@ function show(req,res){
   })
 }
 
+function edit(req,res){
+  Team.findById(req.params.id)
+  .populate("captain")
+  .populate("players")
+  .then(team =>{
+    res.render('teams/edit',{
+      team
+    })
+  })
+}
+
 export {
   index,
   newTeam as new,
   create,
   joinTeam,
+  leaveTeam,
   deleteTeam as delete,
   show,
+  edit,
 }
