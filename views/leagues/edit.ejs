@@ -2,10 +2,10 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <form action="/leagues" method="post">
+  <form action="/leagues/<%=league._id%>/edit/?_method=PUT" method="post">
     <label>
       League Name
-      <input type="text" name="name">
+      <input type="text" name="name" value="<%=league.name%>">
     </label>
     <br>
     <br>
@@ -20,7 +20,9 @@
     <button type="submit">Add Team</button>
   </form>
   <h3>Teams in League</h3>
-  <p> No teams added </p>
+  <% league.teams.forEach(team => { %>
+    <p><%= team.name %> </p>
+  <% }) %>
 
 </main>
 

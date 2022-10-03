@@ -4,7 +4,7 @@
 <main>
   <h1>Leagues </h1>
   <% leagues.forEach(league => { %>
-    <h2> <%= league.name %> </h2>
+    <h2> <a href="/leagues/<%=league._id%>"><%= league.name %></a> </h2>
     <table>
       <thead>
         <tr>
@@ -27,14 +27,18 @@
     <% if (user) { %>
       <% if (user.playerProfile._id.equals(league.coordinator._id)){ %>
         <p>You are coordinator of this league!</p>
+        <form action="/leagues/<%=league._id%>?_method=DELETE" method="POST">
+          <button type="submit"> Delete League </button>
+        </form>
       <% } else if (userInTeam) { %>
         <p> You are a player in this league!</p>
       <% } %>
     <% } %>
   <% }) %>
 <% if (user) { %>
+  <br>
   <form action="/leagues/new" method="GET">
-    <button> Start a League </button>
+    <button type="submit"> Start a League </button>
   </form>
 <% } %>
 

@@ -53,10 +53,22 @@ function deleteTeam(req,res){
   })
 }
 
+function show(req,res){
+  Team.findById(req.params.id)
+  .populate("captain")
+  .populate("players")
+  .then(team =>{
+    res.render('teams/show',{
+      team
+    })
+  })
+}
+
 export {
   index,
   newTeam as new,
   create,
   joinTeam,
   deleteTeam as delete,
+  show,
 }

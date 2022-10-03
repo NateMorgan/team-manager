@@ -1,0 +1,14 @@
+<%- include("../partials/html-head")  %> 
+<%- include("../partials/nav")  %> 
+
+<main>
+  <h1> <%= league.name%> </h1>
+  <br>
+  <br>
+  <h2>Teams</h2>
+  <% league.teams.forEach(team => { %>
+    <p><a href="/teams/<%=team._id%>"><%=team.name%></a></p>
+  <% }) %>
+</main>
+
+<%- include("../partials/footer")  %> 
