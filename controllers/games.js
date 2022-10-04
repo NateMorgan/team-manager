@@ -24,10 +24,12 @@ function newGame(req,res){
 
 function create(req,res){
   req.body.score = ""
-  console.log(req.body)
   Game.create(req.body)
   .then(game=>{
-    res.redirect('/games')
+    Team.updateMany({_id: {$in:[game.homeTeam,game.awayTeam]}},{$addToSet: {games:game._id}})
+    .then(()=>{
+      res.redirect('/games')
+    })
   })
 }
 
