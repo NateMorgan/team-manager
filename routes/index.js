@@ -8,6 +8,8 @@ router.get('/', announceCtrl.index)
 router.get('/new', announceCtrl.new)
 router.post('/', announceCtrl.create)
 
+router.delete('/:id', announceCtrl.delete)
+
 export { 
   router
 }

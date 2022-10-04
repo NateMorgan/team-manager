@@ -29,8 +29,19 @@ function create(req,res){
   })
 }
 
+function deleteAnnounce(req,res){
+  Announcement.findById(req.params.id)
+  .then(announce =>{
+    announce.delete()
+    .then(()=>{
+      res.redirect('/')
+    })
+  })
+}
+
 export{
   index,
   newAnnounce as new,
   create,
+  deleteAnnounce as delete,
 }
