@@ -36,8 +36,11 @@ function create(req,res){
 function deleteGame(req,res){
   Game.findById(req.params.id)
   .then(game =>{
-    game.delete()
-    res.redirect('/games')
+    Team.updateMany({_id: {$in:[game.homeTeam,game.awayTeam]}},{$pull: {games:game._id}})
+    .then(()=>{
+      game.delete()
+      res.redirect('/games')
+    })
   })
 }
 
