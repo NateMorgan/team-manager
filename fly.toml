@@ -1,6 +1,6 @@
-# fly.toml file generated for wild-forest-123 on 2022-10-04T09:17:55-04:00
+# fly.toml file generated for rec-team-manager on 2022-10-04T11:10:59-04:00
 
-app = "wild-forest-123"
+app = "rec-team-manager"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []

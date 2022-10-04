@@ -19,8 +19,8 @@ body {
 header{
   grid-area: "header";
   background-color: #7189FF;
-  padding:5px;
   color:white;
+  padding: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
