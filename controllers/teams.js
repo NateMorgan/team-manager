@@ -1,5 +1,6 @@
 import { Team } from "../models/team.js"
 import { Profile } from "../models/profile.js"
+import { Game } from "../models/game.js"
 
 function index(req,res){
   Team.find()
@@ -68,8 +69,24 @@ function show(req,res){
   .populate("captain")
   .populate("players")
   .then(team =>{
-    res.render('teams/show',{
-      team
+    Game.find({_id:{$in:team.games}})
+    .populate("awayTeam")
+    .populate("homeTeam")
+    .then(games=>{
+      let upcomingGames =[]
+      let pastGames = []
+      games.forEach(game => {
+        if (game.score === ""){
+          upcomingGames.push(game)
+        } else {
+          pastGames.push(game)
+        }
+      });
+      res.render('teams/show',{
+        team,
+        pastGames,
+        upcomingGames
+      })
     })
   })
 }

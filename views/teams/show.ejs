@@ -3,6 +3,7 @@
 
 <main>
   <h1> <%=team.name%> </h1>
+  <h3>Roster</h3>
   <table>
     <thead>
       <tr>
@@ -33,20 +34,33 @@
       <% }) %>
     </tbody>
   </table>
+  <br>
+  <h3> Upcoming Games </h3>
+  <% upcomingGames.forEach(game => { %>
+    <p><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </p>
+    <p><%= game.time.toString().slice(0,21) %> </p>
+  <% }) %>
+  <br>
+  <h3> Past Games </h3>
+  <% pastGames.forEach(game => { %>
+    <p><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </p>
+    <p> <%= game.score %> </p>
+  <% }) %>
+  <br>
   <% if (user){ %>
     <% if (user.playerProfile._id.equals(team.captain._id)){ %>
       <p>You are captain of this team!</p>
       <form action="/teams/<%=team._id%>/edit" method="GET">
-        <button type="submit"> Edit Team</button>
+        <button class="btn btn-light" type="submit"> Edit Team</button>
       </form>
     <% } else if (userInTeam) { %>
       <p> You are a player in this team!</p>
       <form action="/teams/<%=team._id%>/<%=user.playerProfile._id%>/leave?_method=PATCH" method="POST">
-        <button type="submit"> Leave Team</button>
+        <button class="btn btn-danger" type="submit"> Leave Team</button>
       </form>
     <% } else { %>
       <form action="/teams/<%=team._id%>/<%=user.playerProfile._id%>/join?_method=PATCH" method="POST">
-        <button type="submit"> Join Team</button>
+        <button class="btn btn-light" type="submit"> Join Team</button>
       </form>
     <% } %>
   <% } %>

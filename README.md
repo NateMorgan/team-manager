@@ -47,4 +47,5 @@ The reason this code snippet makes me feel so proud is because ".updateMany" fun
 <a target="_blank" href="https://icons8.com/icon/3DXpsdYTg7AE/notification-bell">Notification Bell</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 ## Next Steps
-Connect to external APIs to send out emails and SMS messages to players
+-Connect to external APIs to send out emails and SMS messages to players
+-Optional location property for games
