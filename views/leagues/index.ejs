@@ -24,6 +24,7 @@
         <% }) %>
       </tbody>
     </table>
+    <br>
     <h4> League Schedule </h4>
     <% if (user) { %>
       <% if (user.playerProfile._id.equals(league.coordinator._id)){ %>
@@ -34,7 +35,7 @@
 <% if (user) { %>
   <br>
   <form action="/leagues/new" method="GET">
-    <button type="submit"> Start a League </button>
+    <button class="btn btn-light" type="submit"> Start a League </button>
   </form>
 <% } %>
 

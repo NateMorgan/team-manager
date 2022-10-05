@@ -4,14 +4,12 @@
 <main>
 <h4> From <%= announce.author.name %> for <%=announce.forTeam.name%></h4>
 <p> <%= announce.message %> </p>
-<form action="/<%=announce._id%>?_method=DELETE" method="post">
-  <button type="submit">Delete</button>
+<form action="announcements/<%=announce._id%>?_method=DELETE" method="post">
+  <button class="btn btn-danger"type="submit">Delete</button>
 </form>
 <br>
 
-<form action="/new" method="get">
-  <button type="submit">Make an Announcement</button>
-</form>
+
 </main>
 
 <%- include("../partials/footer")  %> 

@@ -4,18 +4,24 @@
 <main>
   <h1>Games</h1>
   <% games.forEach(game => { %>
-    <h4> <a href="/games/<%= game._id %>"><%= game.awayTeam.name %> at <%= game.homeTeam.name %></a>  </h4>
-    <p> <%= game.time.toString() %></p>
-    <% if (user) { %>
-      <% if (game.score === "") { %>
-        <form action="/games/<%=game._id%>/edit" method="GET">
-          <button class="btn btn-light" type="submit">Add Score</button>
-        </form>
-        <br>
-      <% } else {%>
-        <h5><%= game.score %> </h5>
-      <% } %>
-    <% } %>
+    <a href="/games/<%= game._id %>">
+      <div class="card text-center">
+        <div class="card-body">
+          <h4> <%= game.awayTeam.name %> at <%= game.homeTeam.name %>  </h4>
+          <p> <%= game.time.toString().slice(0,21) %></p>
+          <% if (user) { %>
+            <% if (game.score === "") { %>
+              <form action="/games/<%=game._id%>/edit" method="GET">
+                <button class="btn btn-light" type="submit">Add Score</button>
+              </form>
+              <br>
+            <% } else {%>
+              <h5><%= game.score %> </h5>
+            <% } %>
+          <% } %>
+        </div>
+      </div>
+    </a>
     <br>
   <% }) %>
   <br>

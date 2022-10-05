@@ -13,7 +13,7 @@
   <% if (user) { %>
     <% if (user.playerProfile._id.equals(league.coordinator._id)){ %>
       <form action="/leagues/<%=league._id%>/edit" method="GET">
-        <button type="submit"> Edit League </button>
+        <button class="btn btn-light" type="submit"> Edit League </button>
       </form>
     <% } %>
   <% } %>

@@ -2,14 +2,21 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h1>Homescreen</h1>
   <h2>Announcements</h2>
+  <form action="announcements/new" method="get">
+    <button class="btn btn-dark"type="submit">Make an Announcement</button>
+  </form>
   <% announcements.forEach(announce => { %>
-    <h3> <a href="/<%=announce._id%>"> From <%= announce.author.name %> for <%=announce.forTeam.name%></a></h3>
-    <p> <%= announce.message %> </p>
-    <form action="/<%=announce._id%>?_method=DELETE" method="post">
-      <button type="submit">Delete</button>
-    </form>
+    <a href="announcements/<%=announce._id%>"> 
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p> <%= announce.message %> </p>
+            <footer class="blockquote-footer">From <%= announce.author.name %> to <%=announce.forTeam.name%></footer>
+          </blockquote>
+        </div>
+      </div>
+    </a>
     <br>
   <% }) %>
 </main>

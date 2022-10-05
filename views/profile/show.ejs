@@ -31,11 +31,11 @@
     <% if (user) { %>
       <% if (user.playerProfile._id.equals(profile._id)){ %>
         <form action=<%=`/profile/${profile._id}/edit` %> method="GET">
-          <button> Update Profile </button>
+          <button class="btn btn-light"> Update Profile </button>
         </form>
         <br>
         <form action="/teams/new" method="GET">
-          <button> Start a Team </button>
+          <button class="btn btn-dark"> Start a Team </button>
         </form>
       <% } %>
     <% } %>

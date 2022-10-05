@@ -2,6 +2,7 @@
 <%- include("../partials/nav")  %> 
 
 <main>
+  <h2>Edit League</h2>
   <form action="/leagues/<%=league._id%>?_method=PUT" method="POST">
     <label>
       League Name
@@ -14,7 +15,7 @@
       <input type="text" name="description" value="<%= league.description%>">
     </label>
     <br>
-    <button type="submit">Save</button>
+    <button class="btn btn-light" type="submit">Save</button>
   </form>
     <br>
     <br>
@@ -27,32 +28,33 @@
           <% }) %>
         </select>
       </label>
-      <button type="submit">Add Team</button>
-      <h3>Teams in League</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Team Name</th>
-            <th> Remove </th>
-          </tr>
-        </thead>
-        <tbody>
-          <% league.teams.forEach(team => { %>
-            <tr>
-              <td><a href="/teams/<%=team._id%>"><%=team.name%></a></td>
-              <td>
-                <form action="/leagues/<%=league._id%>/<%=team._id%>/remove?_method=PATCH" method="POST">
-                  <button type="submit"> X </button>
-                </form>
-              </td>
-            </tr>
-          <% }) %>
-        </tbody>
-      </table>
       <br>
+      <button class="btn btn-light" type="submit">Add Team</button>
     </form>
+    <h3>Teams in League</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Team Name</th>
+          <th> Remove </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% league.teams.forEach(team => { %>
+          <tr>
+            <td><a href="/teams/<%=team._id%>"><%=team.name%></a></td>
+            <td>
+              <form action="/leagues/<%=league._id%>/<%=team._id%>/remove?_method=PATCH" method="POST">
+                <button type="submit"> X </button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <br>
     <form action="/leagues/<%=league._id%>?_method=DELETE" method="POST">
-      <button type="submit"> Delete League </button>
+      <button class="btn btn-danger" type="submit"> Delete League </button>
     </form>
 
 </main>

@@ -104,7 +104,7 @@ function removeTeam(req,res){
   League.findById(req.params.leagueid)
   .populate("teams")
   .then(league =>{
-    league.teams.splice(league.teams.indexOf(req.params.teamid),1)
+    league.teams.splice(league.teams.findIndex(team => team._id.equals(req.params.teamid)),1)
     league.save()
     .then(()=>{
       res.redirect(`/leagues/${req.params.leagueid}/edit`)
