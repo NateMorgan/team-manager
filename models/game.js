@@ -2,6 +2,16 @@ import mongoose from "mongoose"
 
 const Schema = mongoose.Schema
 
+const commentSchema = new Schema({
+  commentText: String,
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "Profile"}
+},{
+  timestamps: true
+})
+
+
 const gameSchema = new Schema({
   homeTeam:{
     type: Schema.Types.ObjectId,
@@ -10,7 +20,8 @@ const gameSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Team"},
   time: Date,
-  score: String
+  score: String,
+  comments: [commentSchema]
 })
 
 const Game = mongoose.model("Game", gameSchema)

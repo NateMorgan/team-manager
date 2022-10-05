@@ -1,0 +1,16 @@
+<%- include("../../partials/html-head")  %> 
+<%- include("../../partials/nav")  %> 
+
+<main>
+  <h1>Add Comment for </h1>
+  <h2><%= game.awayTeam.name %> at <%= game.homeTeam.name %></h2>
+  <form action="/games/<%= game._id%>" method="post">
+    <label> Comment
+      <input type="text" name="commentText">
+    </label>
+
+    <button type="submit">Add Comment</button>
+  </form>
+</main>
+
+<%- include("../../partials/footer")  %> 

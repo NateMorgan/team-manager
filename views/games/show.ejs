@@ -1,0 +1,31 @@
+<%- include("../partials/html-head")  %> 
+<%- include("../partials/nav")  %> 
+
+<main>
+<h2><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </h2>
+<p> <%= game.time %></p>
+<% if (game.score === "") { %>
+  <form action="/games/<%=game._id%>/edit" method="GET">
+    <button type="submit">Add Score</button>
+  </form>
+  <% } else {%>
+    <p><%= game.score %> </p>
+    <form action="/games/<%=game._id%>/edit" method="GET">
+      <button type="submit">Change Score</button>
+    </form>
+  <%}%>
+<h3> Comments </h3>
+  <% game.comments.forEach(comment => { %>
+    <p><%= comment.author.name %> says "<%= comment.commentText %>"" </p>
+  <% }) %>
+  <br>
+  <form action="/games/<%=game._id%>/comment/new" method="GET">
+    <button type="submit">Add Comment</button>
+  </form>
+  <br>
+<form action="/games/<%=game._id%>?_method=DELETE" method="POST">
+  <button type="submit">Delete Game</button>
+</form>
+</main>
+
+<%- include("../partials/footer")  %> 
