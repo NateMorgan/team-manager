@@ -77,7 +77,7 @@ function show(req,res){
 function update(req,res){
   Game.findById(req.params.id)
   .then(game=>{
-    game.score = `${req.body.home} - ${req.body.away}`
+    game.score = `${req.body.away} - ${req.body.home}`
     game.save()
     .then(()=>{
       res.redirect(`/games/${game._id}`)
