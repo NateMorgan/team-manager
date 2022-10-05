@@ -40,8 +40,13 @@
       Teams
     </a>
     <% if (user) { %>
-      <a href="/profile">
-        My Profile
-      </a>
+      <div id="profile-nav">
+        <a href="/profile">
+          My Profile
+        </a>
+        <a href="/announcements">
+          <img src="/assets/noti-bell.png" alt="Notification Bell" id="noti-bell">
+        </a>
+      </div>
     <% } %>
   </nav>

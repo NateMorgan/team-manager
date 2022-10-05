@@ -59,3 +59,20 @@ footer{
   align-items: center;
 }
 
+#about-me{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vh
+}
+
+#profile-nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#noti-bell{
+  width: 25px;
+}

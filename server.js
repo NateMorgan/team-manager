@@ -18,6 +18,7 @@ import { router as profileRouter } from './routes/profile.js'
 import { router as teamsRouter } from './routes/teams.js'
 import { router as leaguesRouter } from './routes/leagues.js'
 import { router as gamesRouter } from './routes/games.js'
+import { router as announceRouter } from './routes/announcements.js'
 
 // set up app
 import "./config/database.js"
@@ -59,6 +60,7 @@ app.use(passDataToView)
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/profile', profileRouter)
+app.use('/announcements', announceRouter)
 app.use('/teams', teamsRouter)
 app.use('/leagues',leaguesRouter)
 app.use('/games',gamesRouter)

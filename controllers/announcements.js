@@ -6,7 +6,7 @@ function index(req,res){
   .populate("author")
   .populate("forTeam")
   .then(announcements =>{
-    res.render('index', { 
+    res.render('announcements/index', { 
       announcements
     })
   })
@@ -15,7 +15,7 @@ function index(req,res){
 function newAnnounce(req,res){
   Team.find({})
   .then(teams=>{
-    res.render('new',{
+    res.render('announcements/new',{
       teams
     })
   })
@@ -25,7 +25,7 @@ function create(req,res){
   req.body.author = req.user.playerProfile._id
   Announcement.create(req.body)
   .then(()=>{
-    res.redirect('/')
+    res.redirect('/announcements')
   })
 }
 
@@ -34,7 +34,18 @@ function deleteAnnounce(req,res){
   .then(announce =>{
     announce.delete()
     .then(()=>{
-      res.redirect('/')
+      res.redirect('/announcements')
+    })
+  })
+}
+
+function show(req,res){
+  Announcement.findById(req.params.id)
+  .populate("author")
+  .populate("forTeam")
+  .then(announce=>{
+    res.render('announcements/show',{
+      announce
     })
   })
 }
@@ -44,4 +55,5 @@ export{
   newAnnounce as new,
   create,
   deleteAnnounce as delete,
+  show,
 }

@@ -1,0 +1,17 @@
+<%- include("../partials/html-head")  %> 
+<%- include("../partials/nav")  %> 
+
+<main>
+  <h1>Homescreen</h1>
+  <h2>Announcements</h2>
+  <% announcements.forEach(announce => { %>
+    <h3> <a href="/<%=announce._id%>"> From <%= announce.author.name %> for <%=announce.forTeam.name%></a></h3>
+    <p> <%= announce.message %> </p>
+    <form action="/<%=announce._id%>?_method=DELETE" method="post">
+      <button type="submit">Delete</button>
+    </form>
+    <br>
+  <% }) %>
+</main>
+
+<%- include("../partials/footer")  %> 
