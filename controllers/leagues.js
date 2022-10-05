@@ -76,11 +76,9 @@ function update(req,res){
 }
 
 function save(req,res){
-  console.log(req.body)
   League.findById(req.params.id)
   .populate("teams")
   .then(league =>{
-    console.log(league)
     if (req.user.playerProfile._id.equals(league.coordinator._id)){
       league.name = req.body.name
       league.description = req.body.description
@@ -103,7 +101,6 @@ function show(req,res){
 }
 
 function removeTeam(req,res){
-  console.log("I'm here")
   League.findById(req.params.leagueid)
   .populate("teams")
   .then(league =>{

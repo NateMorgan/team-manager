@@ -3,7 +3,7 @@
 
 <main>
 <h2><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </h2>
-<p> <%= game.time %></p>
+<p> <%= game.time.toString() %></p>
 <% if (game.score === "") { %>
   <% if (user) { %>
     <form action="/games/<%=game._id%>/edit" method="GET">
@@ -14,7 +14,7 @@
     <p><%= game.score %> </p>
     <% if (user) { %>
       <form action="/games/<%=game._id%>/edit" method="GET">
-        <button type="submit">Change Score</button>
+        <button class="btn btn-light" type="submit">Change Score</button>
       </form>
     <% } %>
   <%}%>
@@ -25,11 +25,11 @@
   <br>
   <% if (user) { %>
     <form action="/games/<%=game._id%>/comment/new" method="GET">
-      <button type="submit">Add Comment</button>
+      <button class="btn btn-dark" type="submit">Add Comment</button>
     </form>
     <br>
     <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
-      <button type="submit">Delete Game</button>
+      <button class="btn btn-danger" type="submit">Delete Game</button>
     </form>
   <% } %>
 </main>

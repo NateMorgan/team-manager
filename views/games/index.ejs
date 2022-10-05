@@ -5,23 +5,23 @@
   <h1>Games</h1>
   <% games.forEach(game => { %>
     <h4> <a href="/games/<%= game._id %>"><%= game.awayTeam.name %> at <%= game.homeTeam.name %></a>  </h4>
-    <p> <%= game.time %></p>
+    <p> <%= game.time.toString() %></p>
     <% if (user) { %>
       <% if (game.score === "") { %>
         <form action="/games/<%=game._id%>/edit" method="GET">
-          <button type="submit">Add Score</button>
+          <button class="btn btn-light" type="submit">Add Score</button>
         </form>
         <br>
+      <% } else {%>
+        <h5><%= game.score %> </h5>
       <% } %>
-      <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
-        <button type="submit">Delete Game</button>
-      </form>
     <% } %>
+    <br>
   <% }) %>
   <br>
   <% if (user) { %>
     <form action="games/new" method="get">
-      <button type="submit">Add Game</button>
+      <button class="btn btn-dark" type="submit">Add Game</button>
     </form>
   <% } %>
 </main>

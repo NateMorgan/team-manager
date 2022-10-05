@@ -4,6 +4,7 @@
 <main>
   <h1>Update Score</h1>
   <h4><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </h4>
+  <h5> <%= game.time.toDateString()%> </h5>
   <form action="/games/<%= game._id %>?_method=PATCH" method="POST">
     <label> Home Team
       <input type="number" name="home">
@@ -12,7 +13,8 @@
       <input type="number" name="away">
     </label>
     <br>
-    <button type="submit">Update Game</button>
+    <br>
+    <button class="btn btn-light" type="submit">Update Game</button>
   </form>
 </main>
 

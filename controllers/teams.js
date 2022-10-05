@@ -6,7 +6,6 @@ function index(req,res){
   .populate('captain')
   .populate('players')
   .then(teams =>{
-    console.log(teams)
     res.render('teams/index',{
       teams
     })
