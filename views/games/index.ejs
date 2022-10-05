@@ -6,20 +6,24 @@
   <% games.forEach(game => { %>
     <h4> <a href="/games/<%= game._id %>"><%= game.awayTeam.name %> at <%= game.homeTeam.name %></a>  </h4>
     <p> <%= game.time %></p>
-    <% if (game.score === "") { %>
-      <form action="/games/<%=game._id%>/edit" method="GET">
-        <button type="submit">Add Score</button>
+    <% if (user) { %>
+      <% if (game.score === "") { %>
+        <form action="/games/<%=game._id%>/edit" method="GET">
+          <button type="submit">Add Score</button>
+        </form>
+        <br>
+      <% } %>
+      <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete Game</button>
       </form>
-      <br>
     <% } %>
-    <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
-      <button type="submit">Delete Game</button>
-    </form>
   <% }) %>
   <br>
-  <form action="games/new" method="get">
-    <button type="submit">Add Game</button>
-  </form>
+  <% if (user) { %>
+    <form action="games/new" method="get">
+      <button type="submit">Add Game</button>
+    </form>
+  <% } %>
 </main>
 
 <%- include("../partials/footer")  %> 
