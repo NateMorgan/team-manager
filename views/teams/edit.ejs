@@ -38,11 +38,11 @@
     <% if (user.playerProfile._id.equals(team.captain._id)){ %>
       <p>You are captain of this team!</p>
       <form action="/teams/<%=team._id%>?_method=PUT" method="POST">
-        <button type="submit"> Save </button>
+        <button class="btn btn-light" type="submit"> Save </button>
       </form>
       <br>
       <form action="/teams/<%=team._id%>?_method=DELETE" method="POST">
-        <button type="submit"> Delete Team</button>
+        <button class="btn btn-danger" type="submit"> Delete Team</button>
       </form>
     <% } else if (userInTeam) { %>
       <p> You are a player in this team!</p>

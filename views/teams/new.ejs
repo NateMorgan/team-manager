@@ -2,11 +2,14 @@
 <%- include("../partials/nav")  %> 
 
 <main>
+  <h1>Add a New Team</h1>
   <form action="/teams" method="post">
     <label>
       Team Name
       <input type="text" name="name">
     </label>
+    <br>
+    <br>
     <button class="btn btn-light" type="submit"> Create Team </button>
   </form>
 </main>

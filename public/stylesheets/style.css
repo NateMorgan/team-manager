@@ -57,13 +57,69 @@ a {
   padding: 10px;
 }
 
-a > div:hover{
+/* need this later for card */
+/* a > div:hover{
   background-color: rgb(228, 227, 227);
-}
+} */
 
 main {
   grid-area: main;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.div-table{
+  border: 1px solid;
+  width: 100%;
+  display: table;
+}
+
+.div-thead{
+  display: table-header-group;
+  background-color: #7189FF;
+  color: white;
+  font-weight: bold;
+  width:100%;
+  margin:0;
+  }
+
+.div-th{
+  display: table-cell;
+  text-align: center;
+  border: 1px solid black;
+  width:100%;
+  margin:0;
+}
+
+.div-tbody{
+  display: table-row-group;
+}
+
+.div-row{
+  display: table-row;
+  width:100%;
+}
+
+.div-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.div-row:hover{
+  background-color: coral;
+}
+
+.div-td{
+  display: table-cell;
+  border: 1px solid black;
+  /* border-color: black; */
+}
+
+.table-anchor{
+
+  /* width:100%; */
+  /* display:flex; */
+  display:table-row;
   flex-direction: column;
   align-items: center;
 }
