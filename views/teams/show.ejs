@@ -8,17 +8,15 @@
       <tr>
         <th> Player </th>
         <th> Role </th>
-        <th> Details</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td> <%= team.captain.name %> </td>
-        <td> Captain </td>
-        <td> 
-          <a href= <%=`/profile/${team.captain._id}`%>>Info</a>  
-        </td>
-      </tr>
+      <a href="/profiles/<%=team.captain._id%>">
+        <tr>
+          <td> <%= team.captain.name %> </td>
+          <td> Captain </td>
+        </tr>
+      </a>
       <% let userInTeam = false%>
       <% team.players.forEach(player => { %>
         <% if (user) { %>
@@ -27,11 +25,10 @@
           <%} %>
         <% } %>
         <tr>
-          <td> <%= player.name %> </td>
-          <td> Player </td>
-          <td> 
-            <a href= <%=`/profile/${player._id}`%>>Info</a>  
-          </td>
+          <a href="/profile/<%=player._id%>">
+            <td> <%= player.name %> </td>
+            <td> Player </td>
+          </a>
         </tr>
       <% }) %>
     </tbody>

@@ -27,6 +27,14 @@ header{
   font-size: xx-large;
 }
 
+header a{
+  color:white;
+}
+
+header a:hover {
+  color:lightgray;
+}
+
 nav {
   grid-area: nav;
   background-color: #7189FF;
@@ -35,13 +43,22 @@ nav {
   align-items: center;
 }
 
+nav a{
+  color:white;
+}
+
+nav a:hover {
+  color:lightgray;
+}
+
 a {
   text-decoration: none;
-  color:white;
+  color: black;
   padding: 10px;
 }
-a:hover {
-  color:lightgray;
+
+a > div:hover{
+  background-color: rgb(228, 227, 227);
 }
 
 main {
@@ -51,12 +68,39 @@ main {
   align-items: center;
 }
 
+table, th, td{
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid;
+  border-collapse: collapse;
+  width: 400px;
+  text-align: center;
+}
+
+th{
+  background-color: #7189FF;
+  color: white;
+  border-color: black;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: coral;
+}
+
 footer{
   grid-area: "footer";
   font-size: smaller;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.card{
+  width:50vh;
 }
 
 #about-me{
