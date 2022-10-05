@@ -6,19 +6,19 @@ const router = Router()
 
 /* GET users listing. */
 router.get('/', gamesCtrl.index)
-router.get('/new', gamesCtrl.new)
+router.get('/new', isLoggedIn, gamesCtrl.new)
 router.get('/:id', gamesCtrl.show)
-router.get('/:id/comment/new', gamesCtrl.newComment)
-router.get('/:id/edit', gamesCtrl.edit)
+router.get('/:id/comment/new', isLoggedIn, gamesCtrl.newComment)
+router.get('/:id/edit', isLoggedIn, gamesCtrl.edit)
 
 
-router.post('/', gamesCtrl.create)
-router.post('/:id', gamesCtrl.createComment)
+router.post('/', isLoggedIn, gamesCtrl.create)
+router.post('/:id', isLoggedIn, gamesCtrl.createComment)
 
 
-router.patch('/:id', gamesCtrl.update)
+router.patch('/:id', isLoggedIn, gamesCtrl.update)
 
-router.delete('/:id', gamesCtrl.delete)
+router.delete('/:id', isLoggedIn, gamesCtrl.delete)
 
 export {
   router

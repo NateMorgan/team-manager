@@ -6,9 +6,9 @@ const router = Router()
 
 /* GET users listing. */
 router.get('/', teamCtrl.index)
-router.get('/new', teamCtrl.new)
+router.get('/new', isLoggedIn, teamCtrl.new)
 router.get('/:id', teamCtrl.show)
-router.get('/:id/edit', teamCtrl.edit)
+router.get('/:id/edit', isLoggedIn, teamCtrl.edit)
 
 router.post('/', isLoggedIn, teamCtrl.create)
 

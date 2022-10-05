@@ -1,20 +1,21 @@
 import { Router } from "express"
 import * as leagueCtrl from "../controllers/leagues.js"
+import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()
 
 router.get('/',leagueCtrl.index)
-router.get('/new',leagueCtrl.new)
+router.get('/new', isLoggedIn, leagueCtrl.new)
 router.get('/:id', leagueCtrl.show)
-router.get('/:id/edit',leagueCtrl.edit)
+router.get('/:id/edit', isLoggedIn, leagueCtrl.edit)
 
-router.post('/',leagueCtrl.create)
+router.post('/', isLoggedIn, leagueCtrl.create)
 
-router.put('/:id', leagueCtrl.save)
-router.put('/:id/edit', leagueCtrl.update)
-router.patch('/:leagueid/:teamid/remove', leagueCtrl.removeTeam)
+router.put('/:id', isLoggedIn, leagueCtrl.save)
+router.put('/:id/edit', isLoggedIn, leagueCtrl.update)
+router.patch('/:leagueid/:teamid/remove', isLoggedIn, leagueCtrl.removeTeam)
 
-router.delete('/:id', leagueCtrl.delete)
+router.delete('/:id', isLoggedIn, leagueCtrl.delete)
 
 export {
   router
