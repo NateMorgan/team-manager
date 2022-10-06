@@ -19,6 +19,9 @@ function newTeam(req,res){
 }
 
 function create(req,res){
+  for (let key in req.body) {
+	  if (req.body[key] === '') delete req.body[key]
+	}
   req.body.captain = req.user.playerProfile._id
   Team.create(req.body)
   .then(team => {
@@ -28,6 +31,10 @@ function create(req,res){
       profile.save()
       res.redirect('/teams')
     })
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/teams/new')
   })
 }
 
@@ -56,23 +63,17 @@ function leaveTeam(req,res){
 function deleteTeam(req,res){
   Team.findById(req.params.id)
   .then(team =>{
-    console.log("Team1 is fine")
     if (req.user.playerProfile._id.equals(team.captain._id)){
       Announcement.deleteMany({forTeam:{$eq: team._id}})
       .then(deletedAnnounces =>{
-        console.log("Announce is fine")
         Game.find({ $or: [ {awayTeam:{$eq: team._id}} , {homeTeam:{$eq: team._id}}]})
         .then(deletedGames =>{
           Game.deleteMany( { $or: [ {awayTeam:{$eq: team._id}} , {homeTeam:{$eq: team._id}}]})
           .then(shit =>{
-            console.log("Game is fine")
-            console.log(deletedGames)
             Team.updateMany( {$pull: {games: { $in:deletedGames}}})
             .then( pulledStuff =>{
-              console.log("Team2 is fine")
               Profile.updateMany( {$pull: {teams: team._id}})
               .then(deletedProfiles =>{
-                console.log("Profile is fine")
                 team.delete()
                 .then(() =>{
                   res.redirect('/teams')

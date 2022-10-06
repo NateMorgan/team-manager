@@ -2,16 +2,23 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h1>Add a New Team</h1>
-  <form action="/teams" method="post">
-    <label>
-      Team Name
-      <input type="text" name="name">
-    </label>
-    <br>
-    <br>
-    <button class="btn btn-light" type="submit"> Create Team </button>
-  </form>
+  <br>
+  <div class="card text-center">
+    <div class="card-body">
+      <h1>Add a New Team</h1>
+      <form action="/teams" method="post">
+        <label>
+          Team Name
+          <input type="text" name="name">
+        </label>
+        <br>
+        <br>
+        <button class="btn btn-dark" type="submit"> Create Team </button>
+      </form>
+    </div>
+  </div>
+
+
 </main>
 
 <%- include("../partials/footer")  %> 

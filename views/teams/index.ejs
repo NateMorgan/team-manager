@@ -2,7 +2,13 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h1>Teams </h1>
+  <br>
+  <div class="card text-center">
+    <div class="card-body">
+      <h1>Teams </h1>
+      <p> Number of Teams: <%= teams.length %> </p>
+    </div>
+  </div>
   <% teams.forEach(team => { %>
     <a href="/teams/<%=team._id%>">
       <div class="card text-center">

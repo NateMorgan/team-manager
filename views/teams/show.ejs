@@ -66,7 +66,7 @@
     <% if (user.playerProfile._id.equals(team.captain._id)){ %>
       <p>You are captain of this team!</p>
       <form action="/teams/<%=team._id%>/edit" method="GET">
-        <button class="btn btn-light" type="submit"> Edit Team</button>
+        <button class="btn btn-dark" type="submit"> Edit Team</button>
       </form>
     <% } else if (userInTeam) { %>
       <p> You are a player in this team!</p>

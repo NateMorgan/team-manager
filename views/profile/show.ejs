@@ -34,7 +34,7 @@
         <% if (user) { %>
           <% if (user.playerProfile._id.equals(profile._id)){ %>
             <form action=<%=`/profile/${profile._id}/edit` %> method="GET">
-              <button class="btn btn-light"> Update Profile </button>
+              <button class="btn btn-dark"> Update Profile </button>
             </form>
             <br>
           <% } %>

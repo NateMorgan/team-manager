@@ -2,10 +2,17 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h2>Announcements</h2>
-  <form action="announcements/new" method="get">
-    <button class="btn btn-dark"type="submit">Make an Announcement</button>
-  </form>
+  <br>
+  <div class="card text-center">
+    <div class="card-body">
+      <h2>Announcements</h2>
+      <% if (user) { %>
+        <form action="announcements/new" method="get">
+          <button class="btn btn-dark"type="submit">Make an Announcement</button>
+        </form>
+      <% } %>
+    </div>
+  </div>
   <% announcements.forEach(announce => { %>
     <a href="announcements/<%=announce._id%>"> 
       <div class="card">
