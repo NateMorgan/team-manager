@@ -35,6 +35,7 @@
               <% }) %>
             </tbody>
           </table>
+          <br>
           <% if (user){ %>
             <% if (user.playerProfile._id.equals(team.captain._id)){ %>
               <p>You are captain of this team!</p>
@@ -42,7 +43,7 @@
               <p> You are a player in this team!</p>
             <% } else { %>
               <form action="/teams/<%=team._id%>/<%=user.playerProfile._id%>/join?_method=PATCH" method="POST">
-                <button type="submit"> Join Team</button>
+                <button class="btn btn-dark" type="submit"> Join Team</button>
               </form>
             <% } %>
           <% } %>

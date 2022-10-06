@@ -35,7 +35,11 @@
             <div class="div-td"> <%= team.captain.name %> </div>
             <div class="div-td"> Captain</div>
           </a>
+          <% let userInTeam = false %> 
           <% team.players.forEach(player => { %>
+            <% if (user && user.playerProfile._id.equals(player._id)) { %>
+              <% userInTeam = true %>
+            <% } %>
             <a href="/profile/<%=player._id%>" class="div-row">
               <div class="div-td"> <%= player.name %> </div>
               <div class="div-td"> Player </div>
@@ -57,10 +61,7 @@
         <p><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </p>
         <p> <%= game.score %> </p>
       <% }) %>
-    </div>
-  </div>
-
-  <br>
+      <br>
   <% if (user){ %>
     <% if (user.playerProfile._id.equals(team.captain._id)){ %>
       <p>You are captain of this team!</p>
@@ -74,10 +75,14 @@
       </form>
     <% } else { %>
       <form action="/teams/<%=team._id%>/<%=user.playerProfile._id%>/join?_method=PATCH" method="POST">
-        <button class="btn btn-light" type="submit"> Join Team</button>
+        <button class="btn btn-dark" type="submit"> Join Team</button>
       </form>
     <% } %>
   <% } %>
+    </div>
+  </div>
+
+  
 </main>
 
 <%- include("../partials/footer")  %> 

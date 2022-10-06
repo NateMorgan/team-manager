@@ -2,6 +2,7 @@ import { isLoggedIn } from "../middleware/middleware.js"
 import { Game } from "../models/game.js"
 import { Team } from "../models/team.js"
 
+
 function index(req,res){
   Game.find({})
   .populate("homeTeam")
