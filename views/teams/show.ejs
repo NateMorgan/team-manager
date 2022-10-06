@@ -2,6 +2,7 @@
 <%- include("../partials/nav")  %> 
 
 <main>
+  <br>
   <div class="card text-center">
     <div class="card-body">
       <h2 class="card-title"> <%= team.name %></h2>
@@ -20,8 +21,10 @@
           <% } %>
         <% } %>
       <% }) %> 
-      <h4 class="card-subtitle" >Record is <%= wins %>-<%= loses %>-<%= ties %> </h4>
-      <h4 class="card-subtitle text-muted" >Roster</h4>
+      <br>
+      <h5 class="card-subtitle" >Record is <%= wins %>-<%= loses %>-<%= ties %> </h5>
+      <br>
+      <h4 class="card-subtitle" >Roster</h4>
       <div class="div-table">
         <div class="div-thead">
             <div class="div-th"> Player </div>
@@ -43,8 +46,10 @@
       <br>
       <h3> Upcoming Games </h3>
       <% upcomingGames.forEach(game => { %>
-        <p><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </p>
-        <p><%= game.time.toString().slice(0,21) %> </p>
+        <a href="/games/<%=game._id%>">
+          <p><%= game.awayTeam.name %> at <%= game.homeTeam.name %></p>
+          <p><%= game.time.toString().slice(0,21) %> </p>
+        </a>
       <% }) %>
       <br>
       <h3> Past Games </h3>

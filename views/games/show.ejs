@@ -2,7 +2,8 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-<h2><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </h2>
+  
+<h2><a href="/teams/<%= game.awayTeam._id%>"><%= game.awayTeam.name %></a> at <a href="/teams/<%= game.homeTeam._id%>"><%= game.homeTeam.name %></a> </h2>
 <p> <%= game.time.toString().slice(0,21)%></p>
 <% if (game.score === "") { %>
   <% if (user) { %>
@@ -26,19 +27,17 @@
     <button class="btn btn-danger" type="submit">Delete Game</button>
   </form>
   <br>
-<% } %>
-<h3> Comments </h3>
+  <h3> Comments </h3>
   <% game.comments.forEach(comment => { %>
     <p><%= comment.author.name %> says "<%= comment.commentText %>"" </p>
   <% }) %>
   <br>
-  <% if (user) { %>
-    <form action="/games/<%=game._id%>/comment/new" method="GET">
-      <button class="btn btn-dark" type="submit">Add Comment</button>
-    </form>
-    <br>
-
-  <% } %>
+  <form action="/games/<%=game._id%>/comment/new" method="GET">
+    <button class="btn btn-dark" type="submit">Add Comment</button>
+  </form>
+  <br>
+      
+<% } %>
 </main>
 
 <%- include("../partials/footer")  %> 
