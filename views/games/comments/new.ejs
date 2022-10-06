@@ -2,17 +2,23 @@
 <%- include("../../partials/nav")  %> 
 
 <main>
-  <h1>Add Comment for </h1>
-  <h2><%= game.awayTeam.name %> at <%= game.homeTeam.name %></h2>
-  <h4><%= game.time.toString().slice(0,21) %></h4>
   <br>
-  <form action="/games/<%= game._id%>" method="post">
-    <label> Comment
-      <input type="text" name="commentText">
-    </label>
-    <br>
-    <button class="btn btn-dark" type="submit">Add Comment</button>
-  </form>
+  <div class="card text-center">
+    <div class="card-body">
+      <h1>Add Comment for </h1>
+      <h2><%= game.awayTeam.name %> at <%= game.homeTeam.name %></h2>
+      <h4><%= game.time.toString().slice(0,21) %></h4>
+      <br>
+      <form action="/games/<%= game._id%>" method="post">
+        <label> Comment
+          <input type="text" name="commentText">
+        </label>
+        <br>
+        <button class="btn btn-dark" type="submit">Add Comment</button>
+      </form>
+    </div>
+  </div>
+  
 </main>
 
 <%- include("../../partials/footer")  %> 

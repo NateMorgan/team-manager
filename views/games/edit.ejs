@@ -2,20 +2,25 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h1>Update Score</h1>
-  <h4><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </h4>
-  <h5> <%= game.time.toDateString()%> </h5>
-  <form action="/games/<%= game._id %>?_method=PATCH" method="POST">
-    <label> Away Team
-      <input type="number" name="away" min="0" placeholder="<%= game.awayTeam.name %>">
-    </label>
-    <label> Home Team
-      <input type="number" name="home" min="0" placeholder="<%= game.homeTeam.name %>">
-    </label>
-    <br>
-    <br>
-    <button class="btn btn-light" type="submit">Update Game</button>
-  </form>
+  <br>
+  <div class="card text-center">
+    <div class="card-body">
+      <h1>Update Score</h1>
+      <h4><%= game.awayTeam.name %> at <%= game.homeTeam.name %> </h4>
+      <h5> <%= game.time.toDateString()%> </h5>
+      <form action="/games/<%= game._id %>?_method=PATCH" method="POST">
+        <label> Away Team
+          <input type="number" name="away" min="0" placeholder="<%= game.awayTeam.name %>">
+        </label>
+        <br>
+        <label> Home Team
+          <input type="number" name="home" min="0" placeholder="<%= game.homeTeam.name %>">
+        </label>
+        <br>
+        <button class="btn btn-dark" type="submit">Update Game</button>
+      </form>
+    </div>
+  </div>
 </main>
 
 <%- include("../partials/footer")  %> 

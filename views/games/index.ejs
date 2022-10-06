@@ -2,7 +2,14 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h1>Games</h1>
+  <br>
+  <div class="card text-center">
+    <div class="card-body">
+      <h1>Games</h1>
+      <p>  Total Games: <%= games.length %> </p>
+    </div>
+  </div>
+  
   <% games.forEach(game => { %>
     <a href="/games/<%= game._id %>">
       <div class="card text-center">

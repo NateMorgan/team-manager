@@ -2,33 +2,39 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h1>New Game</h1>
-  <form action="/games" method="post">
-    <label> Home Team
-      <select name="homeTeam">
-        <% teams.forEach(team => { %>
-          <option value="<%= team._id%>"><%= team.name %> </option>
-        <% }) %>
-      </select>
-    </label>
-    <br>
-    <br>
-    <label> Away Team
-      <select name="awayTeam">
-        <% teams.forEach(team => { %>
-          <option value="<%= team._id%>"><%= team.name %> </option>
-        <% }) %>
-      </select>
-    </label>
-    <br>
-    <br>
-    <label> Game Time
-      <input type="datetime-local" name="time">
-    </label>
-    <br>
-    <br>
-    <button class="btn btn-dark" type="submit">Add Game</button>
-  </form>
+  <br>
+  <div class="card text-center">
+    <div class="card-body">
+      <h1>New Game</h1>
+      <form action="/games" method="post">
+        <label> Away Team
+          <select name="awayTeam">
+            <% teams.forEach(team => { %>
+              <option value="<%= team._id%>"><%= team.name %> </option>
+            <% }) %>
+          </select>
+        </label>
+        <br>
+        <p> at </p>
+        <label> Home Team
+          <select name="homeTeam">
+            <% teams.forEach(team => { %>
+              <option value="<%= team._id%>"><%= team.name %> </option>
+            <% }) %>
+          </select>
+        </label>
+        <br>
+        <br>
+        <label> Game Time
+          <input type="datetime-local" name="time">
+        </label>
+        <br>
+        <br>
+        <button class="btn btn-dark" type="submit">Add Game</button>
+      </form>
+    </div>
+  </div>
+  
 </main>
 
 <%- include("../partials/footer")  %> 

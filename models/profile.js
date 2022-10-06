@@ -3,7 +3,9 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const profileSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true},
   avatar: String,
   email: String,
   phoneNum: String,

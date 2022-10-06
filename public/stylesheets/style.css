@@ -74,6 +74,10 @@ main {
   align-items: center;
 }
 
+label{
+  font-weight: bold;
+}
+
 table{
   width: 100%;
 }

@@ -26,6 +26,9 @@ function edit(req, res){
 }
 
 function update(req, res){
+  for (let key in req.body) {
+	  if (req.body[key] === '') delete req.body[key]
+	}
   Profile.findById(req.params.id)
   .then(profile =>{
     if (profile._id.equals(req.user.playerProfile._id)){
@@ -33,13 +36,17 @@ function update(req, res){
       .then(()=>{
         res.redirect(`/profile/${profile._id}`)
       })
+      .catch(err => {
+        console.log(err)
+        res.redirect(`/`)
+      })
     } else {
     throw new Error('🚫 Not authorized 🚫')
   }
   })
-  .catch(err => {
+  .catch(err=>{
     console.log(err)
-    res.redirect(`/`)
+    res.redirect(`/profile/${req.params.id}/edit`)
   })
 }
 

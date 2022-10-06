@@ -24,7 +24,7 @@
           <td> <%= player.name %> </td>
           <td> Player </td>
           <td><form action="/teams/<%=team._id%>/<%=player._id%>/leave?_method=PATCH" method="POST">
-            <button type="submit"> X</button>
+            <button class="btn btn-danger" type="submit"> X</button>
           </form></td>
         </tr>
       <% }) %>
@@ -33,7 +33,7 @@
   <% if (user){ %>
     <% if (user.playerProfile._id.equals(team.captain._id)){ %>
       <p>You are captain of this team!</p>
-      <form action="/teams/<%=team._id%>?_method=PUT" method="POST">
+      <form action="/teams/<%=team._id%>" method="GET">
         <button class="btn btn-dark" type="submit"> Save </button>
       </form>
       <br>
@@ -44,7 +44,7 @@
       <p> You are a player in this team!</p>
     <% } else { %>
       <form action="/teams/<%=team._id%>?_method=PATCH" method="POST">
-        <button type="submit"> Join Team</button>
+        <button class="btn btn-light" type="submit"> Join Team</button>
       </form>
     <% } %>
   <% } %>

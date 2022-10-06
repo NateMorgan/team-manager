@@ -2,42 +2,49 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  
-<h2><a href="/teams/<%= game.awayTeam._id%>"><%= game.awayTeam.name %></a> at <a href="/teams/<%= game.homeTeam._id%>"><%= game.homeTeam.name %></a> </h2>
-<p> <%= game.time.toString().slice(0,21)%></p>
-<% if (game.score === "") { %>
-  <% if (user) { %>
-    <form action="/games/<%=game._id%>/edit" method="GET">
-      <button class="btn btn-light" type="submit">Add Score</button>
-    </form>
-    <br>
-  <% } %>
-  <% } else {%>
-    <p><%= game.score %> </p>
-    <% if (user) { %>
-      <form action="/games/<%=game._id%>/edit" method="GET">
-        <button class="btn btn-light" type="submit">Change Score</button>
-      </form>
-      <br>
-    <% } %>
-  <%}%>
-
-<% if (user) { %>
-  <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
-    <button class="btn btn-danger" type="submit">Delete Game</button>
-  </form>
   <br>
-  <h3> Comments </h3>
-  <% game.comments.forEach(comment => { %>
-    <p><%= comment.author.name %> says "<%= comment.commentText %>"" </p>
-  <% }) %>
-  <br>
-  <form action="/games/<%=game._id%>/comment/new" method="GET">
-    <button class="btn btn-dark" type="submit">Add Comment</button>
-  </form>
-  <br>
+  <div class="card text-center">
+    <div class="card-body">
+      <h2><a href="/teams/<%= game.awayTeam._id%>"><%= game.awayTeam.name %></a> at <a href="/teams/<%= game.homeTeam._id%>"><%= game.homeTeam.name %></a> </h2>
+      <h4> <%= game.time.toString().slice(0,21)%></h4>
+      <% if (game.score === "") { %>
+        <% if (user) { %>
+          <form action="/games/<%=game._id%>/edit" method="GET">
+            <button class="btn btn-dark" type="submit">Add Score</button>
+          </form>
+          <br>
+        <% } %>
+        <% } else {%>
+          <h3><%= game.score %> </h3>
+          <% if (user) { %>
+            <form action="/games/<%=game._id%>/edit" method="GET">
+              <button class="btn btn-dark" type="submit">Change Score</button>
+            </form>
+            <br>
+          <% } %>
+        <%}%>
       
-<% } %>
+      <% if (user) { %>
+        <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
+          <button class="btn btn-danger" type="submit">Delete Game</button>
+        </form>
+        <br>
+        <h3> Comments </h3>
+        <% game.comments.forEach(comment => { %>
+          <p><%= comment.author.name %> says "<%= comment.commentText %>" </p>
+        <% }) %>
+        <br>
+        <form action="/games/<%=game._id%>/comment/new" method="GET">
+          <button class="btn btn-dark" type="submit">Add Comment</button>
+        </form>
+        <br>
+            
+      <% } %>
+    </div>
+  </div>
+
+
+
 </main>
 
 <%- include("../partials/footer")  %> 
