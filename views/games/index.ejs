@@ -9,7 +9,7 @@
       <p>  Total Games: <%= games.length %> </p>
     </div>
   </div>
-  
+  <br>
   <% games.forEach(game => { %>
     <a href="/games/<%= game._id %>">
       <div class="card text-center">
@@ -29,9 +29,7 @@
         </div>
       </div>
     </a>
-    <br>
   <% }) %>
-  <br>
   <% if (user) { %>
     <form action="games/new" method="get">
       <button class="btn btn-dark" type="submit">Add Game</button>

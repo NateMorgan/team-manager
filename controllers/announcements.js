@@ -32,10 +32,12 @@ function create(req,res){
 function deleteAnnounce(req,res){
   Announcement.findById(req.params.id)
   .then(announce =>{
-    announce.delete()
-    .then(()=>{
-      res.redirect('/announcements')
-    })
+    if (req.user.playerProfile._id.equals(announce.author._id)){
+      announce.delete()
+      .then(()=>{
+        res.redirect('/announcements')
+      })
+    }
   })
 }
 

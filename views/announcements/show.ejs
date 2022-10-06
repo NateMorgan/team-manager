@@ -2,12 +2,24 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-<h4> From <%= announce.author.name %> for <%=announce.forTeam.name%></h4>
-<p> <%= announce.message %> </p>
-<form action="announcements/<%=announce._id%>?_method=DELETE" method="post">
-  <button class="btn btn-danger"type="submit">Delete</button>
-</form>
-<br>
+  <br>
+  <div class="card text-center">
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <h3> <%= announce.message %> </h3>
+        <br>
+        <footer class="blockquote-footer">From <%= announce.author.name %> to <%=announce.forTeam.name%></footer>
+      </blockquote>
+      <br>
+      <% if (user.playerProfile._id.equals(announce.author._id)) { %>
+        <form action="/announcements/<%=announce._id%>?_method=DELETE" method="post">
+          <button class="btn btn-danger"type="submit">Delete</button>
+        </form>
+      <% } %>
+    </div>
+  </div>
+
+
 
 
 </main>

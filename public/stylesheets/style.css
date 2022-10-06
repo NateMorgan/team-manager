@@ -185,12 +185,12 @@ img{
 }
 
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:780px) {
   header > div{
     font-size: xx-large;
   }
   
   card{
-    width:50vh;
+    width:500px;
   }
 }
