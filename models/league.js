@@ -3,7 +3,9 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema
 
 const leagueSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true},
   description: String,
   coordinator: {
     type:   Schema.Types.ObjectId,

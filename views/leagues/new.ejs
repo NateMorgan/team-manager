@@ -2,31 +2,41 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <form action="/leagues" method="post">
-    <label>
-      League Name
-      <input type="text" name="name">
-    </label>
-    <br>
-    <br>
-    <label>
-      League Description
-      <input type="text" name="description">
-    </label>
-    <br>
-    <br>
-    <label>
-      Add Teams
-      <select name="teams">
-        <% teams.forEach(team => { %>
-          <option value="<%=team._id%>"><%=team.name%></option>
-        <% }) %>
-      </select>
-    </label>
-    <button type="submit">Add Team</button>
-  </form>
-  <h3>Teams in League</h3>
-  <p> No teams added </p>
+  <br>
+  <div class="card text-center">
+    <div class="card-body">
+      <h1> New League </h1>
+      <form action="/leagues" method="post">
+        <label>
+          League Name
+          <input type="text" name="name">
+        </label>
+        <br>
+        <br>
+        <label>
+          League Description
+          <input type="text" name="description">
+        </label>
+        <br>
+        <br>
+        <label>
+          Add Teams
+          <select name="teams">
+            <% teams.forEach(team => { %>
+              <option value="<%=team._id%>"><%=team.name%></option>
+            <% }) %>
+          </select>
+        </label>
+        <br>
+        <button class="btn btn-dark" type="submit">Add Team</button>
+      </form>
+      <br>
+      <h3>Teams in League</h3>
+      <p> No teams added </p>
+    </div>
+  </div>
+
+  
 
 </main>
 

@@ -2,21 +2,38 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h1> <%= league.name %> </h1>
   <br>
-  <h3> <%= league.description %> </h3>
-  <br>
-  <h2>Teams</h2>
-  <% league.teams.forEach(team => { %>
-    <p><%= team.name %> </p>
-  <% }) %>
-  <% if (user) { %>
-    <% if (user.playerProfile._id.equals(league.coordinator._id)){ %>
-      <form action="/leagues/<%=league._id%>/edit" method="GET">
-        <button class="btn btn-light" type="submit"> Edit League </button>
-      </form>
-    <% } %>
-  <% } %>
+  <div class="card text-center">
+    <div class="card-body">
+      <h1> <%= league.name %> </h1>
+      <br>
+      <h4> <%= league.description %> </h4>
+      <br>
+      <h2>Teams</h2>
+      <div class="div-table">
+        <div class="div-thead">
+            <div class="div-th"> Team </div>
+            <div class="div-th"> Record </div>
+        </div>
+        <div class="div-tbody">
+          <% league.teams.forEach(team => { %>
+            <a href="/profile/<%=team._id%>" class="div-row">
+              <div class="div-td"> <%= team.name %> </div>
+              <div class="div-td"> N/A </div>
+            </a>
+          <% }) %>
+        </div>
+      </div>
+      <br>
+      <% if (user) { %>
+        <% if (user.playerProfile._id.equals(league.coordinator._id)){ %>
+          <form action="/leagues/<%=league._id%>/edit" method="GET">
+            <button class="btn btn-dark" type="submit"> Edit League </button>
+          </form>
+        <% } %>
+      <% } %>
+    </div>
+  </div>
 </main>
 
 <%- include("../partials/footer")  %> 

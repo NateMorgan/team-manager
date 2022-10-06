@@ -2,34 +2,47 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h1>Leagues </h1>
+  <br>
+  <div class="card text-center">
+    <div class="card-body">
+      <h1>Leagues </h1>
+      <p> Number of Leagues: <%= leagues.length %> </p>
+    </div>
+  </div>
+  <br>
   <% leagues.forEach(league => { %>
-    <h2> <a href="/leagues/<%=league._id%>"><%= league.name %></a> </h2>
-    <h4><%= league.description %></h4>
-    <table>
-      <thead>
-        <tr>
-          <th> Team </th>
-          <th> Details</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% league.teams.forEach(team => { %>
-          <tr>
-            <td> <%= team.name %> </td>
-            <td> 
-              <a href= <%=`/teams/${team._id}`%>>Info</a>  
-            </td>
-          </tr>
-        <% }) %>
-      </tbody>
-    </table>
-    <br>
-    <% if (user) { %>
-      <% if (user.playerProfile._id.equals(league.coordinator._id)){ %>
-        <p>You are coordinator of this league!</p>
-      <% } %>
-    <% } %>
+    <a href="/leagues/<%=league._id%>">
+      <div class="card text-center">
+        <div class="card-body">
+          <h2> <%= league.name %> </h2>
+          <h4><%= league.description %></h4>
+          <table>
+            <thead>
+              <tr>
+                <th> Team </th>
+                <th> Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% league.teams.forEach(team => { %>
+                <tr>
+                  <td> <%= team.name %> </td>
+                  <td> 
+                    <a href= <%=`/teams/${team._id}`%>>Info</a>  
+                  </td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+          <br>
+          <% if (user) { %>
+            <% if (user.playerProfile._id.equals(league.coordinator._id)){ %>
+              <p>You are coordinator of this league!</p>
+            <% } %>
+          <% } %>
+        </div>
+      </div>
+    </a>
   <% }) %>
 <% if (user) { %>
   <br>

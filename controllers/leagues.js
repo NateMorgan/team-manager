@@ -23,10 +23,17 @@ function newLeague(req,res){
 }
 
 function create(req,res){
+  for (let key in req.body) {
+	  if (req.body[key] === '') delete req.body[key]
+	}
   req.body.coordinator = req.user.playerProfile._id
   League.create(req.body)
   .then(league => {
     res.redirect(`/leagues/${league._id}/edit`)
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/leagues/new')
   })
 }
 
