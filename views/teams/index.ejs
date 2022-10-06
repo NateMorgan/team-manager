@@ -4,39 +4,6 @@
 <main>
   <h1>Teams </h1>
   <% teams.forEach(team => { %>
-    <!-- <a href="/teams/<%=team._id%>" class="card text-center"> -->
-      <div class="card text-center">
-        <div class="card-body">
-          <h2 class="card-title"> <%= team.name %></h2>
-          <h4 class="card-subtitle text-muted" >Roster</h4>
-            <div class="div-table">
-              <div class="div-thead">
-                  <div class="div-th"> Player </div>
-                  <div class="div-th"> Role </div>
-              </div>
-              <div class="div-tbody">
-                <a href="/profiles/<%=team.captain._id%>" class="div-row">
-                  <div class="div-td"> <%= team.captain.name %> </div>
-                  <div class="div-td"> Captain</div>
-                </a>
-                <% team.players.forEach(player => { %>
-                  <a href="/profile/<%=player._id%>" class="div-row">
-                  <!-- <div class="div-row"> -->
-                      <div class="div-td"> <%= player.name %> </div>
-                      <div class="div-td"> Player </div>
-                    <!-- </div> -->
-                  </a>
-                <% }) %>
-
-              </div>
-            </div>
-        </div>
-      </div>
-    <!-- </a> -->
-    <br>
-  <% }) %>
-  <h1>Original Below</h1>
-  <% teams.forEach(team => { %>
     <a href="/teams/<%=team._id%>">
       <div class="card text-center">
         <div class="card-body">
