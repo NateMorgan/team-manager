@@ -66,6 +66,9 @@ function edit(req,res){
 }
 
 function update(req,res){
+  for (let key in req.body) {
+	  if (req.body[key] === '') delete req.body[key]
+	}
   League.findById(req.params.id)
   .populate("teams")
   .then(league =>{
@@ -78,11 +81,20 @@ function update(req,res){
       .then(teams =>{
         res.redirect(`/leagues/${req.params.id}/edit`)
       })
+      .catch(err=>{
+        res.redirect(`/leagues/${req.params.id}/edit`)
+      })
     }
+  })
+  .catch(err=>{
+    res.redirect(`/leagues/${req.params.id}/edit`)
   })
 }
 
 function save(req,res){
+  if (req.body.name === '') {
+    res.redirect(`/leagues/${req.params.id}/edit`)
+  }
   League.findById(req.params.id)
   .populate("teams")
   .then(league =>{
@@ -94,6 +106,9 @@ function save(req,res){
         res.redirect('/leagues')
       })
     }
+  })
+  .catch(err=>{
+    res.redirect(`/leagues/${req.params.id}/edit`)
   })
 }
 

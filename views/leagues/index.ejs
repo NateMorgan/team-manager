@@ -3,7 +3,7 @@
 
 <main>
   <br>
-  <div class="card text-center">
+  <div class="card text-center w-50" style="min-width:380px;">
     <div class="card-body">
       <h1>Leagues </h1>
       <p> Number of Leagues: <%= leagues.length %> </p>
@@ -11,8 +11,8 @@
   </div>
   <br>
   <% leagues.forEach(league => { %>
-    <a href="/leagues/<%=league._id%>">
-      <div class="card text-center">
+    <div class="card text-center w-50" style="min-width:380px;">
+      <a href="/leagues/<%=league._id%>">
         <div class="card-body">
           <h2> <%= league.name %> </h2>
           <h4><%= league.description %></h4>
@@ -41,8 +41,9 @@
             <% } %>
           <% } %>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
+    <br>
   <% }) %>
 <% if (user) { %>
   <br>

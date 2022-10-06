@@ -3,7 +3,7 @@
 
 <main>
   <br>
-  <div class="card text-center">
+  <div class="card text-center w-50" style="min-width:380px;">
     <div class="card-body">
       <h2>Announcements</h2>
       <% if (user) { %>
@@ -15,16 +15,16 @@
   </div>
   <br>
   <% announcements.forEach(announce => { %>
-    <a href="announcements/<%=announce._id%>"> 
-      <div class="card">
+    <div class="card w-50" style="min-width:380px;">
+      <a href="announcements/<%=announce._id%>" > 
         <div class="card-body">
           <blockquote class="blockquote mb-0">
             <p> <%= announce.message %> </p>
             <footer class="blockquote-footer">From <%= announce.author.name %> to <%=announce.forTeam.name%></footer>
           </blockquote>
         </div>
+      </a>
       </div>
-    </a>
     <br>
   <% }) %>
 </main>

@@ -124,10 +124,6 @@ img{
   border-color: #7189FF;
 }
 
-.card{
-  width:380px;
-}
-
 .div-table{
   display: table;
   width: 100%;
@@ -168,6 +164,10 @@ img{
   border: 1px solid black;
 }
 
+.card-link{
+  width:100%;
+}
+
 .table-anchor{
   display:table-row;
   flex-direction: column;
@@ -188,9 +188,5 @@ img{
 @media screen and (min-width:780px) {
   header > div{
     font-size: xx-large;
-  }
-  
-  card{
-    width:500px;
   }
 }

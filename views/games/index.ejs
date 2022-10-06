@@ -3,7 +3,7 @@
 
 <main>
   <br>
-  <div class="card text-center">
+  <div class="card text-center w-50" style="min-width:380px;">
     <div class="card-body">
       <h1>Games</h1>
       <p>  Total Games: <%= games.length %> </p>
@@ -11,8 +11,8 @@
   </div>
   <br>
   <% games.forEach(game => { %>
-    <a href="/games/<%= game._id %>">
-      <div class="card text-center">
+    <div class="card text-center w-50" style="min-width:380px;">
+      <a href="/games/<%= game._id %>">
         <div class="card-body">
           <h4> <%= game.awayTeam.name %> at <%= game.homeTeam.name %>  </h4>
           <p> <%= game.time.toString().slice(0,21) %></p>
@@ -27,8 +27,9 @@
             <% } %>
           <% } %>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
+    <br>
   <% }) %>
   <% if (user) { %>
     <form action="games/new" method="get">

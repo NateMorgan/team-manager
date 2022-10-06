@@ -3,7 +3,7 @@
 
 <main>
   <br>
-  <div class="card text-center">
+  <div class="card text-center w-50" style="min-width:380px;">
     <div class="card-body">
       <h1>Teams </h1>
       <p> Number of Teams: <%= teams.length %> </p>
@@ -11,8 +11,8 @@
   </div>
   <br>
   <% teams.forEach(team => { %>
-    <a href="/teams/<%=team._id%>">
-      <div class="card text-center">
+    <div class="card text-center w-50" style="min-width:380px;">
+      <a href="/teams/<%=team._id%>">
         <div class="card-body">
           <h2 class="card-title"> <%= team.name %></h2>
           <h4 class="card-subtitle text-muted" >Roster</h4>
@@ -55,8 +55,9 @@
             <% } %>
           <% } %>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
+    <br>
   <% }) %>
 
   <% if (user) { %>

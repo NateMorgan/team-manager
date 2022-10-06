@@ -2,25 +2,29 @@
 <%- include("../partials/nav")  %> 
 
 <main>
-  <h2>New Announcement</h2>
-  <form action="/announcements" method="post">
-
-    <label>
-      For a Team?
-      <select name="forTeam">
-        <% teams.forEach(team => { %>
-          <option value="<%=team._id%>"><%=team.name%></option>
-          <% }) %>
-        </select>
-      </label>
-      <br>
-      <label>
-        Announcement Text
-        <input type="text" name="message">
-      </label>
-      <br>
-      <button class="btn btn-dark" type="submit">Send Announcement</button>
-    </form>
-    </main>
+  <br>
+  <div class="card text-center w-50" style="min-width:380px;">
+    <div class="card-body">
+      <h2>New Announcement</h2>
+      <form action="/announcements" method="post">
+        <label>
+          For a Team?
+          <select name="forTeam">
+            <% teams.forEach(team => { %>
+              <option value="<%=team._id%>"><%=team.name%></option>
+            <% }) %>
+          </select>
+        </label>
+        <br>
+        <label>
+          Announcement Text
+          <input type="text" name="message">
+        </label>
+        <br>
+        <button class="btn btn-dark" type="submit">Send Announcement</button>
+      </form>
+    </div>
+  </div>
+</main>
     
 <%- include("../partials/footer")  %> 
