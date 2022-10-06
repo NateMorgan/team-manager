@@ -50,6 +50,12 @@
       </div>
     </a>
   <% }) %>
+
+  <% if (user) { %>
+    <form action="/teams/new" method="GET">
+      <button class="btn btn-dark"> Start a Team </button>
+    </form>
+  <% } %>
 </main>
 
 <%- include("../partials/footer")  %> 

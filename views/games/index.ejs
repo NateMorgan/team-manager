@@ -12,7 +12,7 @@
           <% if (user) { %>
             <% if (game.score === "") { %>
               <form action="/games/<%=game._id%>/edit" method="GET">
-                <button class="btn btn-light" type="submit">Add Score</button>
+                <button class="btn btn-dark" type="submit">Add Score</button>
               </form>
               <br>
             <% } else {%>

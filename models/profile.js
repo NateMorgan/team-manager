@@ -9,6 +9,7 @@ const profileSchema = new Schema({
   phoneNum: String,
   showSettings: [Boolean],
   preferredPositions: [String],
+  unreadAnnounce: [{type: Schema.Types.ObjectId, ref: "Announcement"}],
   teams: [{type: Schema.Types.ObjectId, ref: "Team"}],
   userProfile: {type: Schema.Types.ObjectId, ref: "User"}
 },{

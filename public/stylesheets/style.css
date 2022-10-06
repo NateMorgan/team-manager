@@ -137,6 +137,13 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+form{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 footer{
   grid-area: "footer";
   font-size: smaller;
