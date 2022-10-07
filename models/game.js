@@ -19,6 +19,9 @@ const gameSchema = new Schema({
   awayTeam:{
     type: Schema.Types.ObjectId,
     ref: "Team"},
+  creator:{
+    type: Schema.Types.ObjectId,
+    ref: "Profile"},
   time: Date,
   score: String,
   comments: [commentSchema]

@@ -8,7 +8,7 @@
       <h2><a href="/teams/<%= game.awayTeam._id%>"><%= game.awayTeam.name %></a> at <a href="/teams/<%= game.homeTeam._id%>"><%= game.homeTeam.name %></a> </h2>
       <h4> <%= game.time.toString().slice(0,21)%></h4>
       <% if (game.score === "") { %>
-        <% if (user) { %>
+        <% if (user && user.playerProfile._id.equals(game.creator)) { %>
           <form action="/games/<%=game._id%>/edit" method="GET">
             <button class="btn btn-dark" type="submit">Add Score</button>
           </form>
@@ -16,18 +16,19 @@
         <% } %>
         <% } else {%>
           <h3><%= game.score %> </h3>
-          <% if (user) { %>
+          <% if (user && user.playerProfile._id.equals(game.creator)) { %>
             <form action="/games/<%=game._id%>/edit" method="GET">
               <button class="btn btn-dark" type="submit">Change Score</button>
             </form>
             <br>
           <% } %>
         <%}%>
-      
       <% if (user) { %>
-        <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
-          <button class="btn btn-danger" type="submit">Delete Game</button>
-        </form>
+        <% if (user.playerProfile._id.equals(game.creator)) { %>
+          <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-danger" type="submit">Delete Game</button>
+          </form>
+        <% } %>
         <br>
         <h3> Comments </h3>
         <% game.comments.forEach(comment => { %>

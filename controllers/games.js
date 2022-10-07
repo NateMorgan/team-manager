@@ -33,6 +33,7 @@ function newGame(req,res){
 
 function create(req,res){
   req.body.score = ""
+  req.body.creator = req.user.playerProfile._id
   Game.create(req.body)
   .then(game=>{
     Team.updateMany({_id: {$in:[game.homeTeam,game.awayTeam]}},{$addToSet: {games:game._id}})
@@ -49,6 +50,9 @@ function create(req,res){
 function deleteGame(req,res){
   Game.findById(req.params.id)
   .then(game =>{
+    if (!req.user.playerProfile._id.equals(game.creator)){
+      res.redirect('/games')
+    }
     Team.updateMany({_id: {$in:[game.homeTeam,game.awayTeam]}},{$pull: {games:game._id}})
     .then(()=>{
       game.delete()
@@ -102,6 +106,9 @@ function show(req,res){
 function update(req,res){
   Game.findById(req.params.id)
   .then(game=>{
+    if (!req.user.playerProfile._id.equals(game.creator)){
+      res.redirect('/games')
+    }
     game.score = `${req.body.away} - ${req.body.home}`
     game.save()
     .then(()=>{
