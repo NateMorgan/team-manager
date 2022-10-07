@@ -12,7 +12,7 @@
         <h3> Email: </h3>
         <input type="email" name="email" value="<%= profile.email %>">
         <h3> Phone Number: </h3>
-        <input type="tel" name="phoneNum" value="<%= profile.phoneNum %>">
+        <input pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" type="tel" name="phoneNum" value="<%= profile.phoneNum %>">
         <h3> Preferred Positions: </h3>
         <input type="text" name="preferredPositions" value="<%= profile.preferredPositions %>">
         <br>

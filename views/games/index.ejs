@@ -16,15 +16,15 @@
         <div class="card-body">
           <h4> <%= game.awayTeam.name %> at <%= game.homeTeam.name %>  </h4>
           <p> <%= game.time.toString().slice(0,21) %></p>
-          <% if (user) { %>
-            <% if (game.score === "") { %>
+          <% if (game.score === "") { %>
+            <% if (user) { %>
               <form action="/games/<%=game._id%>/edit" method="GET">
                 <button class="btn btn-dark" type="submit">Add Score</button>
               </form>
               <br>
-            <% } else {%>
-              <h5><%= game.score %> </h5>
             <% } %>
+          <% } else {%>
+            <h5><%= game.score %> </h5>
           <% } %>
         </div>
       </a>

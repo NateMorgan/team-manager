@@ -44,7 +44,11 @@ function joinTeam(req,res){
     team.players.push(req.params.playerid)
     team.save()
     .then(()=>{
-      res.redirect('/teams')
+      req.user.playerProfile.teams.push(team)
+      req.user.playerProfile.save()
+      .then(()=>{
+        res.redirect('/teams')
+      })
     })
   })
 }
@@ -55,7 +59,11 @@ function leaveTeam(req,res){
     team.players.splice(team.players.indexOf(req.params.playerid),1)
     team.save()
     .then(()=>{
-      res.redirect(`/teams/${req.params.teamid}`)
+      req.user.playerProfile.teams.splice(req.user.playerProfile.teams.indexOf(team),1)
+      req.user.playerProfile.save()
+      .then(()=>{
+        res.redirect(`/teams/${req.params.teamid}`)
+      })
     })
   })
 }
