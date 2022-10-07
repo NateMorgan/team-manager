@@ -10,11 +10,11 @@
       <h5> <%= game.time.toDateString()%> </h5>
       <form action="/games/<%= game._id %>?_method=PATCH" method="POST">
         <label> Away Team
-          <input type="number" name="away" min="0" max="99" placeholder="<%= game.awayTeam.name %>">
+          <input style="width:100px" type="number" name="away" min="0" max="99" placeholder="<%= game.awayTeam.name %>">
         </label>
         <br>
         <label> Home Team
-          <input type="number" name="home" min="0" placeholder="<%= game.homeTeam.name %>">
+          <input style="width:100px" type="number" name="home" min="0" max="99" placeholder="<%= game.homeTeam.name %>">
         </label>
         <br>
         <button class="btn btn-dark" type="submit">Update Game</button>
