@@ -3,7 +3,7 @@
 
 <main>
   <br>
-  <div class="card text-center w-50" style="min-width:380px;">
+  <div class="card text-center w-50 animate__animated animate__zoomIn" style="min-width:380px;">
     <div class="card-body">
       <h2><a href="/teams/<%= game.awayTeam._id%>"><%= game.awayTeam.name %></a> at <a href="/teams/<%= game.homeTeam._id%>"><%= game.homeTeam.name %></a> </h2>
       <h4> <%= game.time.toString().slice(0,21)%></h4>

@@ -3,7 +3,7 @@
 
 <main>
   <br>
-  <div class="card text-center w-50" style="min-width:380px;">
+  <div class="card text-center w-50 animate__animated animate__zoomIn" style="min-width:380px;">
     <div class="card-body">
       <h2>Announcements</h2>
       <% if (user && user.playerProfile.teams.length !== 0) { %>
@@ -16,7 +16,7 @@
   <br>
   <% announcements.forEach(announce => { %>
     <% if (user.playerProfile.teams.indexOf(announce.forTeam._id) > -1) { %>
-      <div class="card w-50" style="min-width:380px;">
+      <div class="card w-50 animate__animated animate__zoomIn" style="min-width:380px;">
         <a href="announcements/<%=announce._id%>" > 
           <div class="card-body">
             <blockquote class="blockquote mb-0">

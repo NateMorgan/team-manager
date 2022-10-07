@@ -40,6 +40,8 @@ The reason this code snippet makes me feel so proud is because ".updateMany" fun
 ## External Resources Used:
 <a href="https://getbootstrap.com/">Bootstrap</a>
 
+<a href="https://animate.style/">Animate.css</a>
+
 <a target="_blank" href="https://icons8.com/icon/J53V3a4rzlOi/soccer-ball">Soccer Ball</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 <a target="_blank" href="https://icons8.com/icon/11642/notification">Notification</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
