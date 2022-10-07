@@ -17,7 +17,7 @@ function index(req,res){
 }
 
 function newAnnounce(req,res){
-  Team.find({})
+  Team.find({_id: { $in: req.user.playerProfile.teams}})
   .then(teams=>{
     res.render('announcements/new',{
       teams
