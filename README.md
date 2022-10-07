@@ -1,13 +1,17 @@
 #  Recreational Team Manager
 ## <a href="https://rec-team-manager.fly.dev/">Link to App!</a>
 
+![App Screenshot](./public/assets/screenshot1.png)
+![App Screenshot](./public/assets/screenshot2.png)
+
+
 ## About this project
 The goal of this project was to make organizing a recreational team easier through automation and data aggregation.  As a team captain for an adult coed soccer team for over three years, I know first hand how hard it is to make sure each game is successful and enjoyable for players.  Making sure you have enough subs, alerting players of changes to the schedule, and managing league payments can weigh down what should be a fun hobby. What if there was an app that could handle most of that grunt work for you?
 
 ## Planning Materials
 <a href="https://trello.com/b/KBWrKxLY/main-board">Link to Trello Board</a>
 ### ERD
-[Updated Link to new ERD]
+![ERD](./public/assets/erd.png)
 
 ## Code Snippet
 ```javascript
