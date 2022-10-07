@@ -11,6 +11,10 @@ function index(req,res){
       leagues
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function newLeague(req,res){
@@ -19,6 +23,10 @@ function newLeague(req,res){
     res.render('leagues/new', {
       teams
     })
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
   })
 }
 
@@ -47,6 +55,10 @@ function deleteLeague(req,res){
       })
     }
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function edit(req,res){
@@ -62,6 +74,10 @@ function edit(req,res){
         })
       })
     }
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
   })
 }
 
@@ -120,6 +136,10 @@ function show(req,res){
       league
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function removeTeam(req,res){
@@ -131,6 +151,10 @@ function removeTeam(req,res){
     .then(()=>{
       res.redirect(`/leagues/${req.params.leagueid}/edit`)
     })
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
   })
 }
 

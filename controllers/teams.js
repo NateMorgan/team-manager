@@ -12,6 +12,10 @@ function index(req,res){
       teams
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function newTeam(req,res){
@@ -51,6 +55,10 @@ function joinTeam(req,res){
       })
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function leaveTeam(req,res){
@@ -65,6 +73,10 @@ function leaveTeam(req,res){
         res.redirect(`/teams/${req.params.teamid}`)
       })
     })
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
   })
 }
 
@@ -93,6 +105,10 @@ function deleteTeam(req,res){
       })
     }
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function show(req,res){
@@ -120,6 +136,10 @@ function show(req,res){
       })
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function edit(req,res){
@@ -130,6 +150,10 @@ function edit(req,res){
     res.render('teams/edit',{
       team
     })
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
   })
 }
 

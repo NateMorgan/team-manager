@@ -23,6 +23,10 @@ function edit(req, res){
       profile
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function update(req, res){

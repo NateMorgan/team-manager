@@ -12,6 +12,10 @@ function index(req,res){
       games
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function newGame(req,res){
@@ -20,6 +24,10 @@ function newGame(req,res){
     res.render('games/new',{
       teams
     })
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
   })
 }
 
@@ -32,6 +40,10 @@ function create(req,res){
       res.redirect('/games')
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function deleteGame(req,res){
@@ -43,6 +55,10 @@ function deleteGame(req,res){
       res.redirect('/games')
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function edit(req,res){
@@ -53,6 +69,10 @@ function edit(req,res){
     res.render('games/edit',{
       game
     })
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
   })
 }
 
@@ -73,6 +93,10 @@ function show(req,res){
       game
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function update(req,res){
@@ -83,6 +107,10 @@ function update(req,res){
     .then(()=>{
       res.redirect(`/games/${game._id}`)
     })
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
   })
 }
 
@@ -95,6 +123,10 @@ function newComment(req,res){
       game
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function createComment(req,res){
@@ -106,6 +138,10 @@ function createComment(req,res){
     .then(()=>{
       res.redirect(`/games/${game._id}`)
     })
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
   })
 }
 

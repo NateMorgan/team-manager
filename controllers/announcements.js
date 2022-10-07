@@ -10,6 +10,10 @@ function index(req,res){
       announcements
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function newAnnounce(req,res){
@@ -19,6 +23,10 @@ function newAnnounce(req,res){
       teams
     })
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function create(req,res){
@@ -26,6 +34,10 @@ function create(req,res){
   Announcement.create(req.body)
   .then(()=>{
     res.redirect('/announcements')
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
   })
 }
 
@@ -39,6 +51,10 @@ function deleteAnnounce(req,res){
       })
     }
   })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function show(req,res){
@@ -49,6 +65,10 @@ function show(req,res){
     res.render('announcements/show',{
       announce
     })
+  })
+  .catch(err=>{
+    console.log(err)
+    res.redirect('/error')
   })
 }
 
